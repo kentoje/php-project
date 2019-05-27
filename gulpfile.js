@@ -6,6 +6,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const pxtorem = require('gulp-pxtorem');
 const minify = require('gulp-minify');
 const replace = require('gulp-replace');
+const replac1 = require('gulp-replace');
 const prod = process.env.NODE_ENV === 'prod';
 
 function php() {
