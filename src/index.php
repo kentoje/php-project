@@ -9,6 +9,16 @@
   <title>PHP Project</title>
 </head>
 <body>
+  <header>
+      <nav>
+        <ul>
+          <li>Food & Drink</li>
+          <li>Soirées</li>
+          <li>Expositions</li>
+          <li><img class="logo" src="../img/logo.png"/></li>
+        </ul>
+      </nav>
+  </header>
   <h1>Ok</h1>
 </body>
 </html>
