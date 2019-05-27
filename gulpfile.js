@@ -20,6 +20,11 @@ function pages() {
     .pipe(dest('dist/pages'));
 }
 
+function config() {
+  return src('src/config/**/*')
+    .pipe(dest('dist/config'));
+}
+
 function classes() {
   return src('src/classes/**/*')
     .pipe(dest('dist/classes'));
@@ -50,7 +55,7 @@ function images() {
     .pipe(dest('dist/img'));
 }
 
-exports.dev = series(parallel(php, css, js, images, fonts, pages, classes), () =>
-  watch((['./src/index.php', './src/scss/**/*.scss', './src/js/**/*.js', './src/classes/*.php']), series(parallel(php, css, js, images, fonts, pages, classes)))
+exports.dev = series(parallel(php, css, js, images, fonts, pages, classes, config), () =>
+  watch((['./src/index.php', './src/scss/**/*.scss', './src/js/**/*.js', './src/classes/*.php', './src/config/*.php']), series(parallel(php, css, js, images, fonts, pages, classes, config)))
 );
-exports.build = series(php, css, js, images, fonts, pages, classes);
+exports.build = series(php, css, js, images, fonts, pages, classes, config);
