@@ -15,6 +15,7 @@
           <li>Food & Drink</li>
           <li>Soirées</li>
           <li>Expositions</li>
+          <li>Home</li>
           <li class="logo"><img src="../img/logo.png"/></li>
         </ul>
       </nav>
@@ -23,5 +24,12 @@
   <main>
     <h2>Aujourd'hui</h2>
   </main>
+  <?php 
+    /* Ceci est un test et il marche plutôt bien ! :) */
+    include('classes/test.class.php');
+    $groot = new Humain();
+    $groot->setNom('Groot');
+    echo $groot->getNom();
+  ?>
 </body>
 </html>
