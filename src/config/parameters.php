@@ -8,3 +8,4 @@ const DB_DBNAME = '';
 /* Config MAMP, might change */
 const DB_USER   = 'root';
 const DB_PASS   = 'root';
+const DB_PASSA   = 'root';
