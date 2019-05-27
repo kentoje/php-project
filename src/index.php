@@ -20,5 +20,12 @@
       </nav>
   </header>
   <h1>Ok</h1>
+  <?php 
+    /* Ceci est un test et il marche plutôt bien ! :) */
+    include('classes/test.class.php');
+    $groot = new Humain();
+    $groot->setNom('Groot');
+    echo $groot->getNom();
+  ?>
 </body>
 </html>
