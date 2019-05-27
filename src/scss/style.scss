@@ -1,6 +1,41 @@
-@import './blocs/homepage.scss';
-@import './config/colors.scss';
-@import './vendors/reset.scss';
+@import "./vendors/reset.scss";
+@import "./blocs/homepage.scss";
+@import "./config/colors.scss";
+
+
+
+header{
+  background-image: url('../img/background_header.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 51vh;
+  width: 100vw;
+}
+
+ul {
+  color: white;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+}
+
+li {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  &.logo{
+    float: left;
+  }
+  
+}
+
+
+
 
 h1 {
   color: red;
