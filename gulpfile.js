@@ -17,7 +17,12 @@ function php() {
 
 function pages() {
   return src('src/pages/**/*')
-    .pipe(dest('dist/pages'))
+    .pipe(dest('dist/pages'));
+}
+
+function classes() {
+  return src('src/classes/**/*')
+    .pipe(dest('dist/classes'));
 }
 
 function fonts() {
@@ -45,7 +50,7 @@ function images() {
     .pipe(dest('dist/img'));
 }
 
-exports.dev = series(parallel(php, css, js, images, fonts, pages), () =>
-  watch((['./src/index.php', './src/scss/**/*.scss', './src/js/**/*.js']), series(parallel(php, css, js, images, fonts, pages)))
+exports.dev = series(parallel(php, css, js, images, fonts, pages, classes), () =>
+  watch((['./src/index.php', './src/scss/**/*.scss', './src/js/**/*.js', './src/classes/*.php']), series(parallel(php, css, js, images, fonts, pages, classes)))
 );
-exports.build = series(php, css, js, images, fonts, pages);
+exports.build = series(php, css, js, images, fonts, pages, classes);
