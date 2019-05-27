@@ -3,6 +3,23 @@
 @import "./config/colors.scss";
 
 
+  @font-face {
+  font-family: 'SF UI Display Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SF UI Display Light'), url('../fonts/sf-ui-display-light-58646b33e0551.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Avenir Black';
+    src: url('../fonts/Avenir-Black.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+p{
+  line-height: 1.52;
+}
 
 header{
   background-image: url('../img/background_header.jpg');
@@ -15,13 +32,15 @@ header{
 ul {
   color: white;
   list-style-type: none;
-  margin: 0;
+  margin-right: 7vw;
+  margin-left: 7vw;
   padding: 0;
   overflow: hidden;
-
 }
 
 li {
+  font-family: "SF UI Display Light";
+  margin-top: 2%;
   float: right;
   display: block;
   color: white;
@@ -31,12 +50,26 @@ li {
   &.logo{
     float: left;
   }
-  
 }
 
+.big__title{
+  font-family: "Avenir Black";
+  color: #0A1765;
+  text-align: left;
+  margin-left: 25%;
+  margin-top: 15%;
+  width: 690px;
+  font-size: 52px;
+}
 
-
-
-h1 {
-  color: red;
+main{
+  margin-top: 15%;
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+  h2{
+    font-family: "Mont Heavy";
+    color: #EE7256;
+    font-size: 22px;
+  }
 }
