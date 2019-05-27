@@ -1,4 +1,8 @@
-@import "./reset.scss";
+@import "./vendors/reset.scss";
+@import "./blocs/homepage.scss";
+@import "./config/colors.scss";
+
+
 
 header{
   background-image: url('../img/background_header.jpg');
