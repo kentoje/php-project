@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +15,15 @@
           <li>Food & Drink</li>
           <li>Soirées</li>
           <li>Expositions</li>
-          <li><img class="logo" src="../img/logo.png"/></li>
+          <li>Home</li>
+          <li class="logo"><img src="../img/logo.png"/></li>
         </ul>
       </nav>
+    <h1 class="big__title">Découvrez les meilleurs évènements de la journée avec love to go out</h1>
   </header>
-  <h1>Ok</h1>
+  <main>
+    <h2>Aujourd'hui</h2>
+  </main>
   <?php 
     /* Ceci est un test et il marche plutôt bien ! :) */
     include('classes/test.class.php');
