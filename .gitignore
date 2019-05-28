@@ -1,3 +1,4 @@
+src/classes/Database.php
 src/config/parameters.php
 gulpfile.js
 .DS_Store
