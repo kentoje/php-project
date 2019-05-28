@@ -1,5 +1,4 @@
 src/classes/Database.php
-src/config/parameters.php
 .DS_Store
 dist
 
