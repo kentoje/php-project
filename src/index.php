@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./scss/style.scss">
+  <link rel="stylesheet" href="./css/style.css">
   <script defer src="./js/main.js"></script>
   <title>PHP Project</title>
 </head>
@@ -15,7 +15,7 @@
         <ul>
           <li class="button"><p>Inscrivez-vous</p></li>
           <li>Se connecter</li>
-          <li class="logo"><img src="../img/logo.png"/></li>
+          <li class="logo"><img src="./img/logo.png"/></li>
         </ul>
       </nav>
     <h1 class="big__title">Découvrez les meilleurs évènements de la journée avec love to go out</h1>
@@ -135,13 +135,5 @@
     </nav>
     
   </footer>  
-
-  <?php 
-    /* Ceci est un test et il marche plutôt bien ! :) */
-    include('classes/test.class.php');
-    $groot = new Humain();
-    $groot->setNom('Groot');
-    echo $groot->getNom();
-  ?>
 </body>
 </html>

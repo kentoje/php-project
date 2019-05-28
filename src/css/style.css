@@ -1,0 +1,388 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@font-face {
+  font-family: 'SF UI Display Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF UI Display Light"), url("../fonts/sf-ui-display-light-58646b33e0551.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Avenir Black';
+  src: url("../fonts/Avenir-Black.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "SF UI Display Light";
+}
+
+p,
+h3 {
+  line-height: 152%;
+}
+
+h3 {
+  font-size: 1.125rem;
+  color: #0a1765;
+}
+
+header {
+  background-image: url("../img/background_header.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 51vh;
+  width: 100vw;
+  margin-bottom: 10%;
+}
+
+header nav ul {
+  color: white;
+  list-style-type: none;
+  margin-right: 7vw;
+  margin-left: 7vw;
+  padding: 0;
+  overflow: hidden;
+}
+
+header nav ul li {
+  font-family: "SF UI Display Light";
+  margin-top: 2%;
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  transition: 0.3s;
+  padding: 0px 15px;
+  text-decoration: none;
+}
+
+header nav ul li:hover {
+  color: #EE7256;
+}
+
+header nav ul li.logo {
+  float: left;
+}
+
+header nav ul li.button {
+  margin-top: 1%;
+}
+
+.big__title {
+  font-family: "Avenir Black";
+  color: #0a1765;
+  text-align: left;
+  margin-left: 25%;
+  margin-top: 10%;
+  width: 690px;
+  font-size: 3.25rem;
+}
+
+nav.categorie {
+  background-color: #F5F8FB;
+}
+
+nav.categorie ul {
+  width: 80vw;
+  list-style-type: none;
+  margin-right: 10vw;
+  margin-left: 10vw;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav.categorie ul li {
+  width: 19%;
+  margin-top: 1%;
+  font-family: "SF UI Display Light";
+  color: #738094;
+  display: inline-block;
+  text-align: center;
+  height: 40px;
+  padding: 0px 15px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+nav.categorie ul li.button {
+  color: white;
+  line-height: 2.5rem;
+}
+
+nav.categorie ul li:hover {
+  color: #EE7256;
+}
+
+nav.categorie ul li:hover.button {
+  background-color: #F5F8FB;
+}
+
+main {
+  margin-top: 5%;
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main h2 {
+  font-family: "Avenir Black";
+  color: #EE7256;
+  font-size: 1.375rem;
+}
+
+main article {
+  margin-top: 3vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  width: 50vw;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+}
+
+main article div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+main article div:nth-child(2) .part {
+  height: 100px;
+}
+
+main article div:nth-child(2) .part h3 {
+  width: 60%;
+  margin-left: 7%;
+  margin-right: auto;
+  margin-top: 7%;
+}
+
+main article div:nth-child(2) .part.avis {
+  height: 40px;
+  margin-top: 10%;
+  flex-direction: row;
+}
+
+main article div:nth-child(2) .part.avis .buttonlike {
+  margin-left: 7%;
+  width: 40px;
+  height: 40px;
+  background-color: #F5F8FB;
+  border-radius: 20px;
+}
+
+main article div:nth-child(2) .part.avis .buttonlike img {
+  display: block;
+  margin: auto;
+  margin-top: 20%;
+  width: 18px;
+  height: 18px;
+}
+
+main article div:nth-child(2) .part.avis p {
+  color: #738094;
+  line-height: 2.5rem;
+  flex-grow: 1;
+  margin-left: 7%;
+}
+
+main article div:nth-child(2) .part .button {
+  width: 127px;
+  height: 41px;
+  margin-left: 7%;
+  margin-top: 10%;
+  width: 127px;
+}
+
+.button {
+  background-color: #EE7256;
+  border-radius: 4px;
+  height: 40px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: white;
+}
+
+.button:hover p {
+  color: #EE7256;
+}
+
+.button p {
+  text-align: center;
+  line-height: 2.5rem;
+  color: white;
+}
+
+footer {
+  background-image: url("../img/footer.jpg");
+  height: 382px;
+  padding-top: 17%;
+}
+
+footer nav ul {
+  width: 70vw;
+  list-style-type: none;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  padding: 0;
+  height: 40px;
+}
+
+footer nav ul.socialnetwork {
+  margin-top: 25px;
+  width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer nav ul.socialnetwork li {
+  margin: auto;
+  width: 80px;
+}
+
+footer nav ul li {
+  width: 33%;
+  font-family: "SF UI Display Light";
+  color: white;
+  display: inline-block;
+  text-align: center;
+  padding: 0px 0px;
+  transition: 0.3s;
+  text-decoration: none;
+}

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use PDO;
+
 class Database {
   const DB_SGBD   = 'mysql';
   const DB_HOST   = 'localhost';
