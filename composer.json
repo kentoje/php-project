@@ -1,9 +1,9 @@
 {
-    "name": "kentomonthubert/php-project",
+    "name": "hetic/php-project",
     "authors": [
         {
-            "name": "kentoje",
-            "email": "k.monthubert@gmail.com"
+            "name": "ETombuyses",
+            "email": "e.tombuyses@gmail.com"
         }
     ],
     "require": {},
