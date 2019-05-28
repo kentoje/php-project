@@ -8,3 +8,4 @@ session_start();
 
 /* MySQL */
 App\Database::connect_database();
+
