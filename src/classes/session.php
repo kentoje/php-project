@@ -1,6 +1,5 @@
 <?php 
 require_once '../config/bootstrap.php';
-$db = App\Database::connect_database();
 ?>
 
 <form action="session.php" method="post">
