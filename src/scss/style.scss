@@ -88,14 +88,14 @@ header{
 nav.categorie {
   background-color: $color-lightgrey;
   ul{
-    width: 100vw;
+    width: 80vw;
     list-style-type: none;
-    margin-right: 10%;
-    margin-left: 10%;
+    margin-right: 10vw;
+    margin-left: 10vw;
     padding: 0;
     overflow: hidden;
     li{
-      width: 15%;
+      width: 19%;
       margin-top: 1%;
       font-family: "SF UI Display Light";
       color: $color-grey;
@@ -204,3 +204,37 @@ main{
     color: $color-white;
   }
 }
+
+footer{
+  background-image: url("../img/footer.jpg");
+  height: 382px;
+  padding-top: 17%;
+  nav ul{
+    width: 70vw;
+    list-style-type: none;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    padding: 0;
+    height: 40px;
+    &.socialnetwork{
+      margin-top: 25px;
+      width: 260px;;
+      margin-left: auto;
+      margin-right: auto;
+      li{
+        margin: auto;
+        width: 80px;
+      }
+    }
+    li{
+      width: 33%;
+      font-family: "SF UI Display Light";
+      color: $color-white;
+      display: inline-block;
+      text-align: center;
+      padding: 0px 0px;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+  }
+} 

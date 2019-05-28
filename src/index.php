@@ -116,6 +116,26 @@
         </div>
       </div>
   </main>
+
+  <footer>
+    <nav>
+      <ul>
+        <li>Communiquer sur<img classe="img" src="./img/logo.png"></li>
+        <li>Réfèrencier votre lieu ou évènement</li>
+        <li>Autres demandes</li>
+      </ul>
+    </nav>
+    
+    <nav>
+      <ul class="socialnetwork">
+        <li><img src="./img/facebook.png"/></li>
+        <li><img src="./img/pinterest.png"/></li>
+        <li><img src="./img/twitter.png"/></li>
+      </ul>
+    </nav>
+    
+  </footer>  
+
   <?php 
     /* Ceci est un test et il marche plutôt bien ! :) */
     include('classes/test.class.php');
