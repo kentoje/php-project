@@ -15,6 +15,16 @@ function php() {
       .pipe(dest("dist"));
 }
 
+function vendor() {
+  return src('vendor/**/*')
+    .pipe(dest('dist/vendor'));
+}
+
+function composer() {
+  return src('composer.json')
+    .pipe(dest('dist'));
+}
+
 function pages() {
   return src('src/pages/**/*')
     .pipe(dest('dist/pages'));
@@ -55,7 +65,7 @@ function images() {
     .pipe(dest('dist/img'));
 }
 
-exports.dev = series(parallel(php, css, js, images, fonts, pages, classes, config), () =>
-  watch((['./src/index.php', './src/scss/**/*.scss', './src/js/**/*.js', './src/classes/*.php', './src/config/*.php']), series(parallel(php, css, js, images, fonts, pages, classes, config)))
+exports.dev = series(parallel(php, css, js, images, fonts, pages, classes, config, vendor, composer), () =>
+  watch((['./src/index.php', './src/scss/**/*.scss', './src/js/**/*.js', './src/classes/*.php', './src/config/*.php']), series(parallel(php, css, js, images, fonts, pages, classes, config, vendor, composer)))
 );
-exports.build = series(php, css, js, images, fonts, pages, classes, config);
+exports.build = series(php, css, js, images, fonts, pages, classes, config, vendor, composer);
