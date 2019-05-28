@@ -9,21 +9,31 @@
   <title>PHP Project</title>
 </head>
 <body>
+
   <header>
       <nav>
         <ul>
-          <li>Food & Drink</li>
-          <li>Soirées</li>
-          <li>Expositions</li>
-          <li>Home</li>
+          <li class="button"><p>Inscrivez-vous</p></li>
+          <li>Se connecter</li>
           <li class="logo"><img src="../img/logo.png"/></li>
         </ul>
       </nav>
     <h1 class="big__title">Découvrez les meilleurs évènements de la journée avec love to go out</h1>
   </header>
+
+  <nav class="categorie">
+      <ul>
+        <li class="button">Évènements phare</li>
+        <li>Expositions</li>
+        <li>Théatre</li>
+        <li>Concerts</li>
+        <li>Feu d'artifice</li>
+      </ul>
+    </nav>
+
   <main>
-    <h2>Évènement phare</h2>
-    <article class="today">
+
+    <article>
       <div>
         <img src="./img/today.png">
       </div>
@@ -43,6 +53,68 @@
         </div>
       </div>    
     </article>
+
+    <article>
+      <div>
+        <img src="./img/today.png">
+      </div>
+      <div>
+        <div class="part">
+          <h3>Découvrez l'exposition des lumières Van-Gogh</h3>
+        </div>
+        <div class="part avis">
+          <div class="buttonlike">
+            <img src="./img/like.png"/>
+          </div>  
+          <p>40</p>
+          <P>Voir avis</p>
+        </div>
+        <div class="part">
+          <div class="button"><p>Participer</p></div>
+        </div>
+      </div>    
+    </article>
+
+    <article>
+      <div>
+        <img src="./img/today.png">
+      </div>
+      <div>
+        <div class="part">
+          <h3>Découvrez l'exposition des lumières Van-Gogh</h3>
+        </div>
+        <div class="part avis">
+          <div class="buttonlike">
+            <img src="./img/like.png"/>
+          </div>  
+          <p>40</p>
+          <P>Voir avis</p>
+        </div>
+        <div class="part">
+          <div class="button"><p>Participer</p></div>
+        </div>
+      </div>    
+    </article>
+
+    <article>
+      <div>
+        <img src="./img/today.png">
+      </div>
+      <div>
+        <div class="part">
+          <h3>Découvrez l'exposition des lumières Van-Gogh</h3>
+        </div>
+        <div class="part avis">
+          <div class="buttonlike">
+            <img src="./img/like.png"/>
+          </div>  
+          <p>40</p>
+          <P>Voir avis</p>
+        </div>
+        <div class="part">
+          <div class="button"><p>Participer</p></div>
+        </div>
+      </div>
   </main>
   <?php 
     /* Ceci est un test et il marche plutôt bien ! :) */
