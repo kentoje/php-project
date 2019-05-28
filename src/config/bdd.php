@@ -1,9 +1,8 @@
 <?php
 
-include('../classes/database.class.php');
+require_once 'bootstrap.php';
 
-$database = new Database();
-$pdo = $database->connect_database('./parameters.php');
+$pdo = App\Database::connect_database();
 
 $data = $pdo->query("SELECT * FROM users")->fetchAll();
 foreach ($data as $row) {
