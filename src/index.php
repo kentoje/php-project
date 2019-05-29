@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon.png"
+    />
   <link rel="stylesheet" href="./css/style.css">
   <script defer src="./js/main.js"></script>
-  <title>PHP Project</title>
+  <title>Love to go out</title>
 </head>
 <body>
 
@@ -14,7 +20,7 @@
       <nav>
         <ul>
           <li class="button"><p>Inscrivez-vous</p></li>
-          <li>Se connecter</li>
+          <li class="connexion">Se connecter</li>
           <li class="logo"><img src="./img/logo.png"/></li>
         </ul>
       </nav>
@@ -35,7 +41,7 @@
 
     <article>
       <div>
-        <img src="./img/today.png">
+        <img src="./img/vangogh.png">
       </div>
       <div>
         <div class="part">
@@ -45,8 +51,8 @@
           <div class="buttonlike">
             <img src="./img/like.png"/>
           </div>  
-          <p>40</p>
-          <P>Voir avis</p>
+          <p>97</p>
+          <p><a>Voir avis</a></p>
         </div>
         <div class="part">
           <div class="button"><p>Participer</p></div>
@@ -56,18 +62,18 @@
 
     <article>
       <div>
-        <img src="./img/today.png">
+        <img src="./img/welovegreen.jpg">
       </div>
       <div>
         <div class="part">
-          <h3>Découvrez l'exposition des lumières Van-Gogh</h3>
+          <h3>Découvrez le festival we love green</h3>
         </div>
         <div class="part avis">
           <div class="buttonlike">
             <img src="./img/like.png"/>
           </div>  
-          <p>40</p>
-          <P>Voir avis</p>
+          <p>77</p>
+          <p><a>Voir avis</a></p>
         </div>
         <div class="part">
           <div class="button"><p>Participer</p></div>
@@ -77,18 +83,18 @@
 
     <article>
       <div>
-        <img src="./img/today.png">
+        <img src="./img/poissonlune.jpg">
       </div>
       <div>
         <div class="part">
-          <h3>Découvrez l'exposition des lumières Van-Gogh</h3>
+          <h3>Découvrez le bar éphémère poisson lune</h3>
         </div>
         <div class="part avis">
           <div class="buttonlike">
             <img src="./img/like.png"/>
           </div>  
-          <p>40</p>
-          <P>Voir avis</p>
+          <p>67</p>
+          <p><a>Voir avis</a></p>
         </div>
         <div class="part">
           <div class="button"><p>Participer</p></div>
@@ -98,18 +104,18 @@
 
     <article>
       <div>
-        <img src="./img/today.png">
+        <img src="./img/ocean.jpg">
       </div>
       <div>
         <div class="part">
-          <h3>Découvrez l'exposition des lumières Van-Gogh</h3>
+          <h3>Découvrez la fête de l'ocean 2019 à Paris</h3>
         </div>
         <div class="part avis">
           <div class="buttonlike">
             <img src="./img/like.png"/>
           </div>  
-          <p>40</p>
-          <P>Voir avis</p>
+          <p>28</p>
+          <p><a>Voir avis</a></p>
         </div>
         <div class="part">
           <div class="button"><p>Participer</p></div>
@@ -120,7 +126,7 @@
   <footer>
     <nav>
       <ul>
-        <li>Communiquer sur<img classe="img" src="./img/logo.png"></li>
+        <li>Communiquer sur<img src="./img/logo.png"></li>
         <li>Réfèrencier votre lieu ou évènement</li>
         <li>Autres demandes</li>
       </ul>
