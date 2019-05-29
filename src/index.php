@@ -58,7 +58,6 @@
     </nav>
 
   <main>
-    <!-- <?php /* var_dump($_SESSION); */ ?> -->
     <article>
       <div>
         <img src="./img/today.png">
@@ -72,7 +71,7 @@
             <img src="./img/like.png"/>
           </div>  
           <p>40</p>
-          <P>Voir avis</p>
+          <P>Voir avis</pre>
         </div>
         <div class="part">
           <div class="button"><p>Participer</p></div>
