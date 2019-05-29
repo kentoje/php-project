@@ -9,7 +9,7 @@ if($_POST['pseudo'] && $_POST['password']) {
   $pseudo = $_POST['pseudo'];
   $password = $_POST['password'];  
 
-  $users = $data->prepare('SELECT pseudo FROM users WHERE pseudo = :pseudo');
+  $users = $data->prepare('SELECT * FROM users WHERE pseudo = :pseudo');
   $users->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
   $users->execute();
   $user = $users->fetch(PDO::FETCH_ASSOC);
@@ -23,13 +23,13 @@ if($_POST['pseudo'] && $_POST['password']) {
     $hashPass = $hashPass['password'];
 
     if ( password_verify( $password , $hashPass ) == true) {
-      $utilisateur = new App\User('',$user['pseudo'],$user['email'],$user['password'],$user['photo']);
+      $utilisateur = new App\User( $user['id_user'], $user['pseudo'], $user['email'], $user['password'], $user['photo'] );
       $_SESSION['name'] = $utilisateur;
       echo $utilisateur->getName();
 
       echo '<pre>' . print_r($_SESSION, true) . '</pre>';
 
-      // header( 'location: ../index.php' );
+      header( 'location: ../index.php' );
     } else {
       echo "mauvais mdp";
     }
