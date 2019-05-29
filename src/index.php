@@ -26,7 +26,7 @@
       </nav>
       <div class="pop-up" id="signin-form">
         <h1 class="big__title2">Hello Friend !</h1>
-        <p>Inscris-toi et restes au courant des évènements cool à Paris</p>
+        <p>Inscris-toi et reste au courant des évènements cool à Paris</p>
         <form method="post" action="./actions/register.php">
           <input type="text" name="name" placeholder="Nom">
           <input type="text" name="email" placeholder="E-mail">
@@ -38,7 +38,7 @@
 
       <div class="pop-up s2" id="login-form">
         <h1 class="big__title2">Hello Friend !</h1>
-        <p>Connecte-toi et restes au courant des évènements cool à Paris</p>        
+        <p>Connecte-toi et reste au courant des évènements cool à Paris</p>        
         <form action="./actions/connection.php" method="post">
           <input type="text" name="pseudo" id="pseudo" placeholder="E-mail">
           <input type="text" name="password" id="password" placeholder="Mot de passe">
@@ -106,15 +106,15 @@
           <p class="comment__description">Exposition magnifique.</p>
         </div>
       </div>
-      <form action="">
+      <form action="actions/comment.php">
         <div class="commentform">
             <div class="commentform__avatar">
             <img class="avatar"
                   src="img/user.jpg"
                   alt="user" />
             </div>
-            <textarea id="comment__input" class="input commentform__field" name="message"
-              placeholder="Ajouter un commentaire..."></textarea>
+            <input id="comment__input" class="input commentform__field" name="message"
+              placeholder="Ajouter un commentaire..."/>
             <input class="button commentform__button" type="submit" value="Envoyer" />
         </div>
       </form>

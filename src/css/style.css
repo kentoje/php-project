@@ -205,6 +205,7 @@ header nav ul li.connexion {
 
 header nav ul li.connexion:hover {
   font-weight: 600;
+  color: #0a1765;
 }
 
 
@@ -299,6 +300,8 @@ main article div:nth-child(2) {
 }
 
 main article div:nth-child(2) .part h3 {
+  font-size : 18px;
+  font-weight: 600;
   width: 60%;
   margin-left: 7%;
   margin-right: auto;
@@ -337,6 +340,7 @@ main article div:nth-child(2) .part.avis p {
   line-height: 2.5rem;
   flex-grow: 1;
   margin-left: 7%;
+  font-weight: 600;
 }
 
 main article div:nth-child(2) .part.avis p :hover{
@@ -362,12 +366,8 @@ main article div:nth-child(2) .part .button {
 }
 
 .button:hover {
-  background-color: white;
+  background-color: #0a1765;
   cursor: pointer;
-}
-
-.button:hover p {
-  color: #EE7256;
 }
 
 .button p {
@@ -433,7 +433,7 @@ main article div:nth-child(2) .part .button {
   font-weight: 500;
 }
 
-textarea {
+input {
   margin: 0px 0px 25.5938px;
   width: 865px;
   height: 158px;
@@ -555,6 +555,7 @@ footer nav ul li:hover{
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor:pointer;
 }
 
 .big__title2{
@@ -568,13 +569,17 @@ footer nav ul li:hover{
 }
 
 .pop-up p{
+  margin-top:20px; 
+  width: 400px;
+  margin-left:40px;
   text-align: center;
-  line-height: 5rem;
+  line-height: 24px;
   color: #EE7256;
 }
 
 .pop-up form{
   margin-left: 9%;
+  margin-top: 20px; 
 }
 .pop-up form input{
   width: 400px;
@@ -591,12 +596,13 @@ footer nav ul li:hover{
   width: 200px;
   background-color: #EE7256;
   color: #F5F8FB;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .pop-up form input[type=submit]:hover{
   cursor: pointer;
-  background-color: #F5F8FB;
-  color: #EE7256;
+  background-color: #0a1765;
 }
 
 ::placeholder{
