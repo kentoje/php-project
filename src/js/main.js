@@ -9,6 +9,7 @@ let loginClose = document.querySelector('#login-close');
 
 signinButton.addEventListener('click', function() {
   signingForm.classList.add('visible');
+  sloginForm.classList.remove('visible')
 })
 
 signinClose.addEventListener('click', function() {
@@ -17,6 +18,7 @@ signinClose.addEventListener('click', function() {
 
 loginButton.addEventListener('click', function() {
   sloginForm.classList.add('visible');
+  signingForm.classList.remove('visible')
 })
 
 loginClose.addEventListener('click', function() {

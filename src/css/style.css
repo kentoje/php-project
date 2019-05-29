@@ -213,6 +213,7 @@ header nav ul li.button {
   font-size: 3.25rem;
 }
 
+
 nav.categorie {
   background-color: #F5F8FB;
 }
@@ -399,13 +400,14 @@ footer nav ul li {
   background: white;
   padding: 30px;
   width: 500px;
-  height: 300px;
+  height: 500px;
   position: fixed;
   margin: auto auto;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  border-radius: 10px;
 }
 
 .visible {
@@ -421,3 +423,26 @@ footer nav ul li {
   top: 20px;
   right: 20px;
 }
+
+.big__title2{
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Avenir Black";
+  color: #0a1765;
+}
+
+.pop-up p{
+  text-align: center;
+  line-height: 5rem;
+  color: #EE7256;
+}
+
+.pop-up form input{
+  width: 400px;
+  height: 60px;
+  margin-top: 35px;
+  border: none;
+  background-color: #F5F8FB;
+  border-radius: 8px;
+}
+

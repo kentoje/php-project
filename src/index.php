@@ -32,13 +32,13 @@
           <div id="signin-close" class="close-icon"></div>
         </form>
       </div>
+
       <div class="pop-up" id="login-form">
-        <h3>Se connecter</h3>
+        <h1 class="big__title2">Hello Friend !</h1>
+        <p>Connecte-toi et restes au courant des évènements cool à Paris</p>        
         <form action="./actions/connection.php" method="post">
-          <label for="pseudo">Pseudo</label>
-          <input type="text" name="pseudo" id="pseudo">
-          <label for="password">Mot de passe</label>
-          <input type="text" name="password" id="password">
+          <input type="text" name="pseudo" id="pseudo" placeholder="E-mail">
+          <input type="text" name="password" id="password" placeholder="Mot de passe">
           <input type="submit" name="ajouter" value="envoyer">
           <div id="login-close" class="close-icon"></div>
         </form>
