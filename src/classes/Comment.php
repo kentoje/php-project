@@ -60,7 +60,6 @@ class Comment {
         'content' => $this->content
       ]
     );
-    $commentaire = $stmt->fetch();
     return $commentaire;
   }
 }
