@@ -1,5 +1,6 @@
 <?php 
 require_once 'config/bootstrap.php';
+$data = App\Database::$pdo;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -65,7 +66,7 @@ require_once 'config/bootstrap.php';
 
   <main>
   <?php 
-    echo '<pre>' . print_r($_SESSION, true) . '</pre>';  
+    /* echo '<pre>' . print_r($_SESSION, true) . '</pre>'; */  
   ?>
     <article>
       <div>
@@ -89,34 +90,29 @@ require_once 'config/bootstrap.php';
     </article>
 
     <div class="comments">
-    <div class="comment">
-        <div class="comment__avatar">
-          <img class="avatar"
+      <?php 
+        $result = $data->query('SELECT * FROM comments INNER JOIN users ON comments.id_user = users.id_user');
+        $comments = $result->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($comments as $comment) : ?>
+          <div class="comment">
+            <div class="comment__avatar">
+              <img class="avatar"
                 src="img/user.jpg"
                 alt="user" />
-        </div>
-        <div class="comment__text">
-          <p class="comment__author">Rene Quiles</p>
-          <p class="comment__description">A ne pas manquer.</p>
-        </div>
-      </div>
-      <div class="comment">
-        <div class="comment__avatar">
-          <img class="avatar"
-                src="img/user.jpg"
-                alt="user" />
-        </div>
-        <div class="comment__text">
-          <p class="comment__author">Romane Mont</p>
-          <p class="comment__description">Exposition magnifique.</p>
-        </div>
-      </div>
+            </div>
+            <div class="comment__text">
+              <p class="comment__author">
+                <?php 
+                  echo $comment['pseudo'];
+                ?></p>
+              <p class="comment__description"><?= $comment['content']; ?></p>
+            </div>
+          </div>
+        <?php endforeach; ?>
       <form action="actions/comment.php" method="post">
         <div class="commentform">
             <div class="commentform__avatar">
-            <img class="avatar"
-                  src="img/user.jpg"
-                  alt="user" />
+            
             </div>
             <input id="comment__input" class="input commentform__field" name="comment"
               placeholder="Ajouter un commentaire..."/>
