@@ -22,12 +22,31 @@ $data = App\Database::$pdo;
 
   <header>
       <nav>
+      <?php 
+      
+      if($_SESSION) {
+        ?>
+        <ul>
+          <li class="button"> <a  href="./actions/disconnection.php"><p>Déconnexion</p></a></li>
+          <li class="logo"><img src="./img/logo.png"/></li>
+        </ul>
+         
+        <?php
+      } else {
+        ?>
         <ul>
           <li id="signin-button" class="button"><p>Inscrivez-vous</p></li>
           <li id="login-button" class="connexion">Se connecter</li>
           <li class="logo"><img src="./img/logo.png"/></li>
         </ul>
+        <?php
+      }
+
+      ?>
+    
       </nav>
+
+
       <div class="pop-up" id="signin-form">
         <h1 class="big__title2">Hello Friend !</h1>
         <p>Inscris-toi et reste au courant des évènements cool à Paris</p>
@@ -67,7 +86,6 @@ $data = App\Database::$pdo;
   <main>
   <?php 
     echo '<pre>' . print_r($_SESSION, true) . '</pre>'; 
- 
   ?>
     <article>
       <div>
