@@ -121,6 +121,8 @@ $data = App\Database::$pdo;
       </form>
     </div>
 
+    <form action="like.php" method="post"></form>
+
     <article>
       <div>
         <img src="./img/welovegreen.jpg">
