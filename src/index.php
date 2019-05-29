@@ -60,6 +60,43 @@
       </div>    
     </article>
 
+    <div class="comments">
+    <div class="comment">
+        <div class="comment__avatar">
+          <img class="avatar"
+                src="img/user.jpg"
+                alt="user" />
+        </div>
+        <div class="comment__text">
+          <p class="comment__author">Rene Quiles</p>
+          <p class="comment__description">A ne pas manquer.</p>
+        </div>
+      </div>
+      <div class="comment">
+        <div class="comment__avatar">
+          <img class="avatar"
+                src="img/user.jpg"
+                alt="user" />
+        </div>
+        <div class="comment__text">
+          <p class="comment__author">Romane Mont</p>
+          <p class="comment__description">Exposition magnifique.</p>
+        </div>
+      </div>
+      <form action="">
+        <div class="commentform">
+            <div class="commentform__avatar">
+            <img class="avatar"
+                  src="img/user.jpg"
+                  alt="user" />
+            </div>
+            <textarea id="comment__input" class="input commentform__field" name="message"
+              placeholder="Ajouter un commentaire..."></textarea>
+            <input class="button commentform__button" type="submit" value="Envoyer" />
+        </div>
+      </form>
+    </div>
+
     <article>
       <div>
         <img src="./img/welovegreen.jpg">

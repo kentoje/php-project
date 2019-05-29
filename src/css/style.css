@@ -317,6 +317,10 @@ main article div:nth-child(2) .part.avis .buttonlike {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+main article div:nth-child(2) .part.avis .buttonlike:hover {
+  border: 3px solid #0a1765;
+}
+
 main article div:nth-child(2) .part.avis .buttonlike img {
   display: block;
   margin: auto;
@@ -334,6 +338,7 @@ main article div:nth-child(2) .part.avis p {
 
 main article div:nth-child(2) .part.avis p :hover{
   color: #0a1765;
+  font-weight: 600;
 }
 
 main article div:nth-child(2) .part .button {
@@ -349,6 +354,8 @@ main article div:nth-child(2) .part .button {
   border-radius: 4px;
   height: 40px;
   transition: 0.3s;
+  color:white;
+  font-weight: 600;
 }
 
 .button:hover {
@@ -360,6 +367,91 @@ main article div:nth-child(2) .part .button {
   text-align: center;
   line-height: 2.5rem;
   color: white;
+}
+
+ .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  
+}
+
+.input {
+  border-radius: 2px;
+  box-shadow: 1px 1px 10px 2px #e3e5e9;
+  border: 1px solid #fff;
+  padding: 1.6rem;
+  cursor: pointer;
+}
+
+ .comments{
+   margin:0 110px;
+ }
+
+ .comment{
+  margin-top: 30px;
+ }
+
+ .comment__author {
+   font-weight: 600;
+   color: #0a1765;
+ }
+
+ .comment__description {
+    font-weight: 500;
+    color: #738094;
+ }
+
+.comment {
+  display: flex;
+}
+
+.comment__avatar{
+  float: left;
+  flex: none;
+  margin: 0 1.6rem 0 0;
+}
+
+.comment__text {
+  flex: auto;
+}
+
+.comment__author {
+  margin: 0 0.8rem 12px 0;
+  line-height: 1;
+}
+
+.comment__description {
+  font-weight: 500;
+}
+
+textarea {
+  margin: 0px 0px 25.5938px;
+  width: 865px;
+  height: 158px;
+}
+
+.commentform {
+  display: grid;
+  grid-template-columns: min-content min-content auto;
+  margin-top: 30px;
+  padding-bottom: 60px; 
+}
+.commentform__avatar {
+  margin: 0 1.6rem 0 0;
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+.commentform__field {
+  grid-column: 0.5;
+  grid-row-start: 2;
+  margin: 0 0 1.6rem 0;
+}
+.commentform__button {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  height: 41px;
+  font-size: 16px;
 }
 
 footer {
