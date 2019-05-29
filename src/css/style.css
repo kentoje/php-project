@@ -463,7 +463,6 @@ footer nav ul li:hover{
   border: none;
   background-color: #F5F8FB;
   border-radius: 8px;
-  transition: 0.3s;
   padding-left: 15px;
 }
 .pop-up form input[type=submit]{
