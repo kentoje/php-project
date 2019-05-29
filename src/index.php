@@ -13,11 +13,37 @@
   <header>
       <nav>
         <ul>
-          <li class="button"><p>Inscrivez-vous</p></li>
-          <li>Se connecter</li>
+          <li id="signin-button" class="button"><p>Inscrivez-vous</p></li>
+          <li id="login-button">Se connecter</li>
           <li class="logo"><img src="./img/logo.png"/></li>
         </ul>
       </nav>
+      <div class="pop-up" id="signin-form">
+        <h3>S'inscrire</h3>
+        <p>Créer ton compte et restes au courant des évènements cool à Paris</p>
+        <form method="post" action="./actions/register.php">
+          <label for="name">Pseudo</label>
+          <input type="text" name="name">
+          <label for="email">E-mail</label>
+          <input type="text" name="email">
+          <label for="password">Mot de passe</label>
+          <input type="text" name="password">
+          <button type="submit" name="submit">Submit</button>
+          <div id="signin-close" class="close-icon"></div>
+        </form>
+      </div>
+      <div class="pop-up" id="login-form">
+        <h3>Se connecter</h3>
+        <form action="./actions/connection.php" method="post">
+          <label for="pseudo">Pseudo</label>
+          <input type="text" name="pseudo" id="pseudo">
+          <label for="password">Mot de passe</label>
+          <input type="text" name="password" id="password">
+          <input type="submit" name="ajouter" value="envoyer">
+          <div id="login-close" class="close-icon"></div>
+        </form>
+      </div>
+
     <h1 class="big__title">Découvrez les meilleurs évènements de la journée avec love to go out</h1>
   </header>
 

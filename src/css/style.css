@@ -386,3 +386,35 @@ footer nav ul li {
   transition: 0.3s;
   text-decoration: none;
 }
+
+
+/* ----------------------------- pop up ------------------------------- */
+
+.pop-up {
+  position: relative;
+  visibility: hidden;
+  background: white;
+  padding: 30px;
+  width: 500px;
+  height: 300px;
+  position: fixed;
+  margin: auto auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.close-icon {
+  content: url("../img/close.svg");
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
