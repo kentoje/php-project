@@ -192,6 +192,7 @@ header nav ul li {
 }
 
 header nav ul li:hover {
+  cursor: pointer;
   color: #EE7256;
 }
 
@@ -246,6 +247,7 @@ nav.categorie ul li.button {
 }
 
 nav.categorie ul li:hover {
+  cursor: pointer;
   color: #EE7256;
 }
 
@@ -338,6 +340,7 @@ main article div:nth-child(2) .part .button {
 
 .button:hover {
   background-color: white;
+  cursor: pointer;
 }
 
 .button:hover p {
@@ -352,7 +355,7 @@ main article div:nth-child(2) .part .button {
 
 footer {
   background-image: url("../img/footer.jpg");
-  height: 382px;
+  height: 379px;
   width: 100vw;
   padding-top: 17%;
   background-repeat: no-repeat;
@@ -389,6 +392,10 @@ footer nav ul li {
   padding: 0px 0px;
   transition: 0.3s;
   text-decoration: none;
+}
+
+footer nav ul li:hover{
+  cursor: pointer;
 }
 
 
@@ -467,6 +474,7 @@ footer nav ul li {
 }
 
 .pop-up form input[type=submit]:hover{
+  cursor: pointer;
   background-color: #F5F8FB;
   color: #EE7256;
 }
