@@ -22,7 +22,7 @@ if($_POST['pseudo'] && $_POST['password']) {
     $hashPass = $hash->fetch(PDO::FETCH_ASSOC);
     $hashPass = $hashPass['password'];
 
-    if ( password_verify($password , $hashPass ) == true) {
+    if ( password_verify( $password , $hashPass ) == true) {
       $utilisateur = new App\User('',$user['pseudo'],$user['email'],$user['password'],$user['photo']);
       $_SESSION['name'] = $utilisateur;
       echo $utilisateur->getName();
@@ -31,7 +31,7 @@ if($_POST['pseudo'] && $_POST['password']) {
 
       // header( 'location: ../index.php' );
     } else {
-      echo "mauavais mdp";
+      echo "mauvais mdp";
     }
   } else {
     echo "cet identifiant n'existe pas";
