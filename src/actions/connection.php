@@ -13,9 +13,6 @@ if($_POST['pseudo'] && $_POST['password']) {
   $users->execute();
   $user = $users->fetch(PDO::FETCH_ASSOC);
 
-  
-
-
 
   if (isset($user)) {
     $hash = $data->prepare('SELECT password FROM users WHERE pseudo = :pseudo');

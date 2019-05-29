@@ -8,11 +8,6 @@
   <title>Sign Up</title>
 </head>
 <body>
-
-
-  <?php 
-    require_once '../config/bootstrap.php';
-  ?>
   <form method="post" action="../actions/register.php">
     <label for="email">E-mail</label>
     <input type="text" name="email">
