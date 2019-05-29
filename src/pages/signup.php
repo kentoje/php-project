@@ -8,6 +8,8 @@
   <title>Sign Up</title>
 </head>
 <body>
+
+
   <?php 
     require_once '../config/bootstrap.php';
   ?>
