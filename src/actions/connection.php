@@ -2,6 +2,7 @@
 require_once '../config/bootstrap.php';
 $data = App\Database::$pdo;
 
+
 if($_POST['pseudo'] && $_POST['password']) {
 
   //check for existing user in DB
@@ -23,17 +24,17 @@ if($_POST['pseudo'] && $_POST['password']) {
 
     if ( password_verify($password , $hashPass )) {
       $_SESSION['name'] = $user['pseudo'];
-      header( 'location: ../index.php' );
+      $utilisateur = new App\User();
+      $utilisateur->setName($user['pseudo']);
+      echo $utilisateur->getName();
+
+      echo '<pre>' . print_r($_SESSION, true) . '</pre>';
+
+      // header( 'location: ../index.php' );
     } else {
       echo "mauavais mdp";
     }
   } else {
     echo "cet identifiant n'existe pas";
   }
-}
-
-if($_POST ['disconnected']) {
-  unset($sessionUser);
-  session_destroy();
-  header( 'location: ../index.php' );
 }

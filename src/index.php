@@ -1,3 +1,6 @@
+<?php 
+require_once 'config/bootstrap.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -58,6 +61,9 @@
     </nav>
 
   <main>
+  <?php 
+    echo '<pre>' . print_r($_SESSION, true) . '</pre>';  
+  ?>
     <article>
       <div>
         <img src="./img/today.png">

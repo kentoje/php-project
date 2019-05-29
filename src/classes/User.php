@@ -9,14 +9,14 @@ class User {
   private $password;
   private $image;
 
-  public function __construct( $id, $name, $mail, $password, $image )
-  {
-    $this->id = $id;
-    $this->name = $name;
-    $this->mail = $mail;
-    $this->password = $password;
-    $this->image = $image;
-  }
+  // public function __construct( $id, $name, $mail, $password, $image )
+  // {
+  //   $this->id = $id;
+  //   $this->name = $name;
+  //   $this->mail = $mail;
+  //   $this->password = $password;
+  //   $this->image = $image;
+  // }
 
   /* setters */
 
