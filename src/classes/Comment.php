@@ -59,4 +59,24 @@ class Comment {
   {
     return $this->content;
   }
+
+  public function sendDb()
+  {
+    $stmt = App::connect_database()->prepare("  INSERT INTO comments (
+      id_user,
+      id_event,
+      content,
+    ) VALUES (:user, :event, :content)");
+    $stmt->execute(
+      [
+        'user'    => $this->idUser,
+        'event' => $this->isEvent,
+        'content'     => $this->content
+      ]
+    );
+    $commentaire = $stmt->fetch();
+    return $commentaire;
+  }
 }
+
+

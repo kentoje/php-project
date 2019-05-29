@@ -32,7 +32,7 @@
     </nav>
 
   <main>
-
+    <!-- <?php /* var_dump($_SESSION); */ ?> -->
     <article>
       <div>
         <img src="./img/today.png">
@@ -53,7 +53,11 @@
         </div>
       </div>    
     </article>
-
+    <form action="./actions/comment.php" method="post">
+      <label for="comment">Comment</label>
+      <input type="text" name="comment">
+      <button type="submit">Submit</button>
+    </form>
     <article>
       <div>
         <img src="./img/today.png">
