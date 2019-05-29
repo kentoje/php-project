@@ -66,7 +66,8 @@ $data = App\Database::$pdo;
 
   <main>
   <?php 
-    /* echo '<pre>' . print_r($_SESSION, true) . '</pre>'; */  
+    echo '<pre>' . print_r($_SESSION, true) . '</pre>'; 
+ 
   ?>
     <article>
       <div>
