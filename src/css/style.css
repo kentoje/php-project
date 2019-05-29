@@ -192,6 +192,7 @@ header nav ul li {
 }
 
 header nav ul li:hover {
+  cursor: pointer;
   color: #EE7256;
 }
 
@@ -212,6 +213,7 @@ header nav ul li.button {
   width: 690px;
   font-size: 3.25rem;
 }
+
 
 nav.categorie {
   background-color: #F5F8FB;
@@ -245,6 +247,7 @@ nav.categorie ul li.button {
 }
 
 nav.categorie ul li:hover {
+  cursor: pointer;
   color: #EE7256;
 }
 
@@ -337,6 +340,7 @@ main article div:nth-child(2) .part .button {
 
 .button:hover {
   background-color: white;
+  cursor: pointer;
 }
 
 .button:hover p {
@@ -351,8 +355,11 @@ main article div:nth-child(2) .part .button {
 
 footer {
   background-image: url("../img/footer.jpg");
-  height: 382px;
+  height: 379px;
+  width: 100vw;
   padding-top: 17%;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 footer nav ul {
@@ -387,22 +394,34 @@ footer nav ul li {
   text-decoration: none;
 }
 
+footer nav ul li:hover{
+  cursor: pointer;
+}
+
 
 /* ----------------------------- pop up ------------------------------- */
 
 .pop-up {
   position: relative;
   visibility: hidden;
-  background: white;
+  background: rgba(255, 255, 255, 0.99);
   padding: 30px;
-  width: 500px;
-  height: 300px;
+  width: 550px;
+  height: 530px;
   position: fixed;
   margin: auto auto;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #EE7256;
+}
+
+.pop-up.s2{
+  height: 430px;
 }
 
 .visible {
@@ -418,3 +437,50 @@ footer nav ul li {
   top: 20px;
   right: 20px;
 }
+
+.big__title2{
+  height: 32px;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Avenir Black";
+  color: #0a1765;
+  padding-left: 30px;
+}
+
+.pop-up p{
+  text-align: center;
+  line-height: 5rem;
+  color: #EE7256;
+}
+
+.pop-up form{
+  margin-left: 9%;
+}
+.pop-up form input{
+  width: 400px;
+  height: 60px;
+  margin-bottom: 35px;
+  border: none;
+  background-color: #F5F8FB;
+  border-radius: 8px;
+  transition: 0.3s;
+  padding-left: 15px;
+}
+.pop-up form input[type=submit]{
+  margin-left: 20%;
+  width: 200px;
+  background-color: #EE7256;
+  color: #F5F8FB;
+}
+
+.pop-up form input[type=submit]:hover{
+  cursor: pointer;
+  background-color: #F5F8FB;
+  color: #EE7256;
+}
+
+::placeholder{
+  font-size: 15px;
+  margin-left: 10px;
+}
+
