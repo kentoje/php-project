@@ -24,7 +24,7 @@
         <form method="post" action="./actions/register.php">
           <input type="text" name="name" placeholder="Nom">
           <input type="text" name="email" placeholder="E-mail">
-          <input type="text" name="password" placeholder="Mot de passe">
+          <input type="password" name="password" placeholder="Mot de passe">
           <input type="submit" name="submit" value="Envoyer">
           <div id="signin-close" class="close-icon"></div>
         </form>
@@ -35,7 +35,7 @@
         <p>Connecte-toi et restes au courant des évènements cool à Paris</p>        
         <form action="./actions/connection.php" method="post">
           <input type="text" name="pseudo" id="pseudo" placeholder="E-mail">
-          <input type="text" name="password" id="password" placeholder="Mot de passe">
+          <input type="password" name="password" id="password" placeholder="Mot de passe">
           <input type="submit" name="ajouter" value="Envoyer">
           <div id="login-close" class="close-icon"></div>
         </form>
