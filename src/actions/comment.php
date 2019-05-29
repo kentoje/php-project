@@ -17,6 +17,9 @@ if ( !isset( $_POST['submit'] ) ) {
   array_push( $errors, 'Formulaire non envoyé.' );
   var_dump( $errors );
 } else {
+  if ( !$_SESSION['name'] ) {
+    header('location: ../pages/notconnected.php');
+  }
   $comment = $_POST['comment'];
   if ( empty($comment) ) {
     array_push( $errors, 'Votre commentaire est vide !' );
