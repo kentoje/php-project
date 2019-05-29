@@ -19,11 +19,34 @@
   <header>
       <nav>
         <ul>
-          <li class="button"><p>Inscrivez-vous</p></li>
-          <li class="connexion">Se connecter</li>
+          <li id="signin-button" class="button"><p>Inscrivez-vous</p></li>
+          <li id="login-button" class="connexion">Se connecter</li>
           <li class="logo"><img src="./img/logo.png"/></li>
         </ul>
       </nav>
+      <div class="pop-up" id="signin-form">
+        <h1 class="big__title2">Hello Friend !</h1>
+        <p>Inscris-toi et restes au courant des évènements cool à Paris</p>
+        <form method="post" action="./actions/register.php">
+          <input type="text" name="name" placeholder="Nom">
+          <input type="text" name="email" placeholder="E-mail">
+          <input type="text" name="password" placeholder="Mot de passe">
+          <input type="submit" name="submit" value="Envoyer">
+          <div id="signin-close" class="close-icon"></div>
+        </form>
+      </div>
+
+      <div class="pop-up s2" id="login-form">
+        <h1 class="big__title2">Hello Friend !</h1>
+        <p>Connecte-toi et restes au courant des évènements cool à Paris</p>        
+        <form action="./actions/connection.php" method="post">
+          <input type="text" name="pseudo" id="pseudo" placeholder="E-mail">
+          <input type="text" name="password" id="password" placeholder="Mot de passe">
+          <input type="submit" name="ajouter" value="Envoyer">
+          <div id="login-close" class="close-icon"></div>
+        </form>
+      </div>
+
     <h1 class="big__title">Découvrez les meilleurs évènements de la journée avec love to go out</h1>
   </header>
 
@@ -38,7 +61,7 @@
     </nav>
 
   <main>
-
+    <!-- <?php /* var_dump($_SESSION); */ ?> -->
     <article>
       <div>
         <img src="./img/vangogh.png">

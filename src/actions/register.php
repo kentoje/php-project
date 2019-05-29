@@ -10,7 +10,6 @@ $errors = array();
 
 /* Connection to DB */
 $db = App\Database::connect_database();
-/* var_dump($db); */
 
 /* Registration */
 if ( isset( $_POST['submit'] ) ) {
