@@ -11,18 +11,21 @@ $errors = array();
 /* Connection to DB */
 $db = App\Database::connect_database();
 
-$comment = $_POST['comment'];
+
 /* Registration */
 if ( !isset( $_POST['submit'] ) ) {
   array_push( $errors, 'Formulaire non envoyé.' );
-  
-  /* if ( empty($comment) ) {
-    
-  } */
+  var_dump( $errors );
 } else {
+  $comment = $_POST['comment'];
   if ( empty($comment) ) {
     array_push( $errors, 'Votre commentaire est vide !' );
-  } else {
-    /* $comment = new App\Comment( $_SESSION[''] ); */
+    var_dump( $errors );
+  } else { 
+    $comment = new App\Comment('', $_SESSION['name']->getId(), $_POST['comment'] );
+    var_dump($comment);
+    $comment->sendDb();
+    
+    header('location: ../index.php');
   }
 }

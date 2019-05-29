@@ -84,7 +84,7 @@ require_once 'config/bootstrap.php';
     <form action="./actions/comment.php" method="post">
       <label for="comment">Comment</label>
       <input type="text" name="comment">
-      <button type="submit">Submit</button>
+      <input type="submit" name="submit" value="Submit">
     </form>
     <article>
       <div>

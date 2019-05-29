@@ -27,4 +27,10 @@ class Database {
       die('Erreur de connexion à la base de données'. $e->getMessage());
     }
   }
+
+  public static function getLastIdUser(){
+    $stmt = self::$pdo->query("SELECT LAST_INSERT_ID() FROM users");
+    $lastId = $stmt->fetch();
+    return $lastId;
+  }
 }

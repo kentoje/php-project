@@ -22,10 +22,9 @@ if($_POST['pseudo'] && $_POST['password']) {
     $hashPass = $hash->fetch(PDO::FETCH_ASSOC);
     $hashPass = $hashPass['password'];
 
-    if ( password_verify($password , $hashPass )) {
-      $_SESSION['name'] = $user['pseudo'];
-      $utilisateur = new App\User();
-      $utilisateur->setName($user['pseudo']);
+    if ( password_verify($password , $hashPass ) == true) {
+      $utilisateur = new App\User('',$user['pseudo'],$user['email'],$user['password'],$user['photo']);
+      $_SESSION['name'] = $utilisateur;
       echo $utilisateur->getName();
 
       echo '<pre>' . print_r($_SESSION, true) . '</pre>';
