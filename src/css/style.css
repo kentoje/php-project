@@ -134,21 +134,28 @@ table {
 }
 
 @font-face {
-  font-family: 'SF UI Display Light';
+  font-family: 'Mont';
+  src: url("../fonts/Mont-Regular.woff2") format("woff2");
+  font-weight: 500;
   font-style: normal;
-  font-weight: normal;
-  src: local("SF UI Display Light"), url("../fonts/sf-ui-display-light-58646b33e0551.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'Avenir Black';
-  src: url("../fonts/Avenir-Black.woff") format("woff");
-  font-weight: normal;
+  font-family: 'Mont';
+  src: url("../fonts/Mont-SemiBold.woff2") format("woff2");
+  font-weight: 600;
   font-style: normal;
 }
 
-body {
-  font-family: "SF UI Display Light";
+@font-face {
+  font-family: 'Mont';
+  src: url("../fonts/Mont-Heavy.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+html {
+  font-family: "Mont";
 }
 
 p,
@@ -164,10 +171,10 @@ h3 {
 header {
   background-image: url("../img/background_header.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   height: 51vh;
   width: 100vw;
-  margin-bottom: 10%;
+  margin-bottom: 30px;
 }
 
 header nav ul {
@@ -180,8 +187,7 @@ header nav ul {
 }
 
 header nav ul li {
-  font-family: "SF UI Display Light";
-  margin-top: 2%;
+  margin-top: 30px;
   float: right;
   display: block;
   color: white;
@@ -190,6 +196,18 @@ header nav ul li {
   padding: 0px 15px;
   text-decoration: none;
 }
+
+header nav ul li.connexion {
+  margin-top: 41px;
+  margin-right: 3vw;
+  color: #0a1765;
+}
+
+header nav ul li.connexion:hover {
+  font-weight: 600;
+  color: #0a1765;
+}
+
 
 header nav ul li:hover {
   cursor: pointer;
@@ -201,17 +219,17 @@ header nav ul li.logo {
 }
 
 header nav ul li.button {
-  margin-top: 1%;
+  margin-top: 2%;
 }
 
 .big__title {
-  font-family: "Avenir Black";
   color: #0a1765;
   text-align: left;
-  margin-left: 25%;
-  margin-top: 10%;
+  margin: 9% auto;
   width: 690px;
   font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 4.25rem;
 }
 
 
@@ -231,7 +249,6 @@ nav.categorie ul {
 nav.categorie ul li {
   width: 19%;
   margin-top: 1%;
-  font-family: "SF UI Display Light";
   color: #738094;
   display: inline-block;
   text-align: center;
@@ -263,7 +280,6 @@ main {
 }
 
 main h2 {
-  font-family: "Avenir Black";
   color: #EE7256;
   font-size: 1.375rem;
 }
@@ -273,7 +289,7 @@ main article {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
-  width: 50vw;
+  width: 56vw;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
   display: flex;
 }
@@ -283,11 +299,9 @@ main article div:nth-child(2) {
   flex-direction: column;
 }
 
-main article div:nth-child(2) .part {
-  height: 100px;
-}
-
 main article div:nth-child(2) .part h3 {
+  font-size : 18px;
+  font-weight: 600;
   width: 60%;
   margin-left: 7%;
   margin-right: auto;
@@ -306,6 +320,11 @@ main article div:nth-child(2) .part.avis .buttonlike {
   height: 40px;
   background-color: #F5F8FB;
   border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+main article div:nth-child(2) .part.avis .buttonlike:hover {
+  border: 3px solid #0a1765;
 }
 
 main article div:nth-child(2) .part.avis .buttonlike img {
@@ -321,6 +340,12 @@ main article div:nth-child(2) .part.avis p {
   line-height: 2.5rem;
   flex-grow: 1;
   margin-left: 7%;
+  font-weight: 600;
+}
+
+main article div:nth-child(2) .part.avis p :hover{
+  color: #0a1765;
+  font-weight: 600;
 }
 
 main article div:nth-child(2) .part .button {
@@ -336,30 +361,112 @@ main article div:nth-child(2) .part .button {
   border-radius: 4px;
   height: 40px;
   transition: 0.3s;
+  color:white;
+  font-weight: 600;
 }
 
 .button:hover {
-  background-color: white;
+  background-color: #0a1765;
   cursor: pointer;
 }
 
-.button:hover p {
-  color: #EE7256;
-}
-
 .button p {
+  font-weight: 600;
   text-align: center;
   line-height: 2.5rem;
   color: white;
 }
 
+ .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  
+}
+
+.input {
+  border-radius: 2px;
+  box-shadow: 1px 1px 10px 2px #e3e5e9;
+  border: 1px solid #fff;
+  padding: 1.6rem;
+  cursor: pointer;
+}
+
+ .comments{
+   margin:0 110px;
+ }
+
+ .comment{
+  margin-top: 30px;
+ }
+
+ .comment__author {
+   font-weight: 600;
+   color: #0a1765;
+ }
+
+ .comment__description {
+    font-weight: 500;
+    color: #738094;
+ }
+
+.comment {
+  display: flex;
+}
+
+.comment__avatar{
+  float: left;
+  flex: none;
+  margin: 0 1.6rem 0 0;
+}
+
+.comment__text {
+  flex: auto;
+}
+
+.comment__author {
+  margin: 0 0.8rem 12px 0;
+  line-height: 1;
+}
+
+.comment__description {
+  font-weight: 500;
+}
+
+input {
+  margin: 0px 0px 25.5938px;
+  width: 865px;
+  height: 158px;
+}
+
+.commentform {
+  display: grid;
+  grid-template-columns: min-content min-content auto;
+  margin-top: 30px;
+  padding-bottom: 60px; 
+}
+.commentform__avatar {
+  margin: 0 1.6rem 0 0;
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+.commentform__field {
+  grid-column: 0.5;
+  grid-row-start: 2;
+  margin: 0 0 1.6rem 0;
+}
+.commentform__button {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  height: 41px;
+  font-size: 16px;
+}
+
 footer {
   background-image: url("../img/footer.jpg");
-  height: 379px;
-  width: 100vw;
-  padding-top: 17%;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  height: 382px;
+  padding-top: 15%;
 }
 
 footer nav ul {
@@ -371,9 +478,20 @@ footer nav ul {
   height: 40px;
 }
 
+footer nav ul li {
+  width: 33%;
+  font-weight: 600;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  padding: 0px 0px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
 footer nav ul.socialnetwork {
-  margin-top: 25px;
-  width: 260px;
+  margin-top: 30px;
+  width: 250px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -385,7 +503,8 @@ footer nav ul.socialnetwork li {
 
 footer nav ul li {
   width: 33%;
-  font-family: "SF UI Display Light";
+  font-family: "Mont";
+  font-weight: 600;
   color: white;
   display: inline-block;
   text-align: center;
@@ -436,25 +555,31 @@ footer nav ul li:hover{
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor:pointer;
 }
 
 .big__title2{
   height: 32px;
   font-size: 2rem;
   text-align: center;
-  font-family: "Avenir Black";
+  font-family: "Mont";
+  font-weight: 700;
   color: #0a1765;
   padding-left: 30px;
 }
 
 .pop-up p{
+  margin-top:20px; 
+  width: 400px;
+  margin-left:40px;
   text-align: center;
-  line-height: 5rem;
+  line-height: 24px;
   color: #EE7256;
 }
 
 .pop-up form{
   margin-left: 9%;
+  margin-top: 20px; 
 }
 .pop-up form input{
   width: 400px;
@@ -471,12 +596,13 @@ footer nav ul li:hover{
   width: 200px;
   background-color: #EE7256;
   color: #F5F8FB;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .pop-up form input[type=submit]:hover{
   cursor: pointer;
-  background-color: #F5F8FB;
-  color: #EE7256;
+  background-color: #0a1765;
 }
 
 ::placeholder{

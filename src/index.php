@@ -7,9 +7,15 @@ require_once 'config/bootstrap.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon.png"
+    />
   <link rel="stylesheet" href="./css/style.css">
   <script defer src="./js/main.js"></script>
-  <title>PHP Project</title>
+  <title>Love to go out</title>
 </head>
 <body>
 
@@ -17,13 +23,13 @@ require_once 'config/bootstrap.php';
       <nav>
         <ul>
           <li id="signin-button" class="button"><p>Inscrivez-vous</p></li>
-          <li id="login-button">Se connecter</li>
+          <li id="login-button" class="connexion">Se connecter</li>
           <li class="logo"><img src="./img/logo.png"/></li>
         </ul>
       </nav>
       <div class="pop-up" id="signin-form">
         <h1 class="big__title2">Hello Friend !</h1>
-        <p>Inscris-toi et restes au courant des évènements cool à Paris</p>
+        <p>Inscris-toi et reste au courant des évènements cool à Paris</p>
         <form method="post" action="./actions/register.php">
           <input type="text" name="name" placeholder="Nom">
           <input type="text" name="email" placeholder="E-mail">
@@ -35,7 +41,7 @@ require_once 'config/bootstrap.php';
 
       <div class="pop-up s2" id="login-form">
         <h1 class="big__title2">Hello Friend !</h1>
-        <p>Connecte-toi et restes au courant des évènements cool à Paris</p>        
+        <p>Connecte-toi et reste au courant des évènements cool à Paris</p>        
         <form action="./actions/connection.php" method="post">
           <input type="text" name="pseudo" id="pseudo" placeholder="E-mail">
           <input type="text" name="password" id="password" placeholder="Mot de passe">
@@ -63,7 +69,7 @@ require_once 'config/bootstrap.php';
   ?>
     <article>
       <div>
-        <img src="./img/today.png">
+        <img src="./img/vangogh.png">
       </div>
       <div>
         <div class="part">
@@ -73,33 +79,66 @@ require_once 'config/bootstrap.php';
           <div class="buttonlike">
             <img src="./img/like.png"/>
           </div>  
-          <p>40</p>
-          <P>Voir avis</pre>
+          <p>97</p>
+          <p><a>Voir avis</a></p>
         </div>
         <div class="part">
           <div class="button"><p>Participer</p></div>
         </div>
       </div>    
     </article>
-    <form action="./actions/comment.php" method="post">
-      <label for="comment">Comment</label>
-      <input type="text" name="comment">
-      <input type="submit" name="submit" value="Submit">
-    </form>
+
+    <div class="comments">
+    <div class="comment">
+        <div class="comment__avatar">
+          <img class="avatar"
+                src="img/user.jpg"
+                alt="user" />
+        </div>
+        <div class="comment__text">
+          <p class="comment__author">Rene Quiles</p>
+          <p class="comment__description">A ne pas manquer.</p>
+        </div>
+      </div>
+      <div class="comment">
+        <div class="comment__avatar">
+          <img class="avatar"
+                src="img/user.jpg"
+                alt="user" />
+        </div>
+        <div class="comment__text">
+          <p class="comment__author">Romane Mont</p>
+          <p class="comment__description">Exposition magnifique.</p>
+        </div>
+      </div>
+      <form action="actions/comment.php" method="post">
+        <div class="commentform">
+            <div class="commentform__avatar">
+            <img class="avatar"
+                  src="img/user.jpg"
+                  alt="user" />
+            </div>
+            <input id="comment__input" class="input commentform__field" name="comment"
+              placeholder="Ajouter un commentaire..."/>
+            <input class="button commentform__button" name="submit" type="submit" value="Envoyer" />
+        </div>
+      </form>
+    </div>
+
     <article>
       <div>
-        <img src="./img/today.png">
+        <img src="./img/welovegreen.jpg">
       </div>
       <div>
         <div class="part">
-          <h3>Découvrez l'exposition des lumières Van-Gogh</h3>
+          <h3>Découvrez le festival we love green</h3>
         </div>
         <div class="part avis">
           <div class="buttonlike">
             <img src="./img/like.png"/>
           </div>  
-          <p>40</p>
-          <P>Voir avis</p>
+          <p>77</p>
+          <p><a>Voir avis</a></p>
         </div>
         <div class="part">
           <div class="button"><p>Participer</p></div>
@@ -109,18 +148,18 @@ require_once 'config/bootstrap.php';
 
     <article>
       <div>
-        <img src="./img/today.png">
+        <img src="./img/poissonlune.jpg">
       </div>
       <div>
         <div class="part">
-          <h3>Découvrez l'exposition des lumières Van-Gogh</h3>
+          <h3>Découvrez le bar éphémère poisson lune</h3>
         </div>
         <div class="part avis">
           <div class="buttonlike">
             <img src="./img/like.png"/>
           </div>  
-          <p>40</p>
-          <P>Voir avis</p>
+          <p>67</p>
+          <p><a>Voir avis</a></p>
         </div>
         <div class="part">
           <div class="button"><p>Participer</p></div>
@@ -130,18 +169,18 @@ require_once 'config/bootstrap.php';
 
     <article>
       <div>
-        <img src="./img/today.png">
+        <img src="./img/ocean.jpg">
       </div>
       <div>
         <div class="part">
-          <h3>Découvrez l'exposition des lumières Van-Gogh</h3>
+          <h3>Découvrez la fête de l'ocean 2019 à Paris</h3>
         </div>
         <div class="part avis">
           <div class="buttonlike">
             <img src="./img/like.png"/>
           </div>  
-          <p>40</p>
-          <P>Voir avis</p>
+          <p>28</p>
+          <p><a>Voir avis</a></p>
         </div>
         <div class="part">
           <div class="button"><p>Participer</p></div>
@@ -152,7 +191,7 @@ require_once 'config/bootstrap.php';
   <footer>
     <nav>
       <ul>
-        <li>Communiquer sur<img classe="img" src="./img/logo.png"></li>
+        <li>Communiquer sur<img src="./img/logo.png"></li>
         <li>Réfèrencier votre lieu ou évènement</li>
         <li>Autres demandes</li>
       </ul>
