@@ -31,9 +31,10 @@ if($_POST['pseudo'] && $_POST['password']) {
 
       header( 'location: ../index.php' );
     } else {
-      echo "mauvais mdp";
+
+      header('location: ../pages/wronglogin.php');
     }
   } else {
-    echo "cet identifiant n'existe pas";
+    header('location: ../pages/wronglogin.php');    
   }
 }

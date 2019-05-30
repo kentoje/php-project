@@ -76,7 +76,7 @@ if(!isset($_SESSION['mainevent'])) {
         </form>
       </div>
 
-    <h1 class="big__title">Découvrez les meilleurs évènements de la journée avec love to go out</h1>
+    <h1 class="big__title">Découvrez les meilleurs évènements sur Paris</h1>
   </header>
 
   <nav class="categorie">
