@@ -7,11 +7,11 @@ class Like {
   private $id_user;
   private $id_event;
 
-  function __construct( $id_like, $id_user, $id_event )
+  function __construct( $idLike, $idUser, $idEvent )
   {
-    $this->id_like;
-    $this->id_user;
-    $this->id_event;
+    $this->id_like = $idLike;
+    $this->id_user = $idUser;
+    $this->id_event = $idEvent;
   }
 
   public function getIdLike() 
@@ -30,19 +30,19 @@ class Like {
   }
 
   
-  public function setIdLike( int $id_like)
+  public function setIdLike( int $idLike)
   {
-    $this->id_like = $id_like;
+    $this->id_like = $idLike;
   }
   
-  public function setIdUser( int $id_user )
+  public function setIdUser( int $idUser )
   {
-    $this->id_user = $id_user;
+    $this->id_user = $idUser;
   }
   
-  public function setIdEvent( int $id_event )
+  public function setIdEvent( int $idEvent )
   {
-    $this->id_event = $id_event;
+    $this->id_event = $idEvent;
   }
 
   public function saveBdd()
@@ -54,8 +54,8 @@ class Like {
         'idEvent' => $this->id_event
       ]
     );
-    $user = $stmt->fetch();
-    return $user;
+    /* $user = $stmt->fetch();
+    return $user; */
   }
 
   public function deleteBdd()
