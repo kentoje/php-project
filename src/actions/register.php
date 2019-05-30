@@ -13,8 +13,12 @@ $db = App\Database::connect_database();
 
 /* Registration */
 if ( isset( $_POST['submit'] ) ) {
-  $email = $_POST['email'];
-  $username = $_POST['name'];
+  if ( filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL ) ) {
+    $email = htmlspecialchars($_POST['email']);
+  } else {
+    header('location: ../pages/wrong.php');
+  }
+  $username = htmlspecialchars($_POST['name']);
   $password = password_hash( $_POST['password'], PASSWORD_DEFAULT );
 
   if ( empty($email) ) {

@@ -26,7 +26,7 @@ if ( !isset( $_POST['submit'] ) ) {
     array_push( $errors, 'Votre commentaire est vide !' );
     // var_dump( $errors );
   } else { 
-    $comment = new App\Comment('', $_SESSION['name']->getId(), $_SESSION['mainevent'], $_POST['comment']);
+    $comment = new App\Comment('', $_SESSION['name']->getId(), $_SESSION['mainevent'], htmlspecialchars($_POST['comment']));
     // var_dump($comment);
     $comment->sendDb();
     header('location: ../index.php');
