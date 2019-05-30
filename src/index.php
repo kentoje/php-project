@@ -24,7 +24,7 @@ $data = App\Database::$pdo;
       <nav>
       <?php 
       
-      if($_SESSION['name']) {
+      if(isset($_SESSION['name'])) {
         ?>
         <ul>
           <li class="button"><a href="./actions/disconnection.php"><p>Déconnexion</p></a></li>
@@ -196,7 +196,7 @@ $data = App\Database::$pdo;
         <li><img src="./img/twitter.png"/></li>
       </ul>
     </nav>
-    
+
   </footer>  
 </body>
 </html>
