@@ -130,7 +130,6 @@ main article div:nth-child(2) .part h3 {
 
 main article div:nth-child(2) .part.avis {
   height: 40px;
-  margin-top: 10%;
   flex-direction: row;
 }
 
@@ -244,6 +243,7 @@ main article div:nth-child(2) .part .button {
  .comment__description {
     font-weight: 500;
     color: #738094;
+    margin-top: 10px;
  }
 
 .comment__avatar{
@@ -557,4 +557,11 @@ div.button > a {
 
 .button__tooling--bottom {
   margin-top: 12px;
+}
+
+
+
+.post-date {
+  color: #EE7256;
+  font-size: 12px;
 }

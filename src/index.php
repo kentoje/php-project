@@ -99,7 +99,7 @@ if(!isset($_SESSION['mainevent'])) {
       <img src="./img/<?php echo $event['image']?>">
       <div class="main-event-title-section">
         <h3><?php echo $event['title']?></h3>
-        <h4>24 mai - 27 mai</h4>
+        <!-- <h4>24 mai - 27 mai</h4> -->
         <div class="part avis">
         <form action="./actions/like.php" method="post">
           <button class="like" type="submit" name="vote" value="<?php echo $event['id_event'] ?>"><img src="img/like.png" alt=""></button>
@@ -139,7 +139,7 @@ if(!isset($_SESSION['mainevent'])) {
     <div class="comments">
       <h2>Commentaires</h2>
       <?php 
-        $result = $data->prepare('SELECT * FROM comments INNER JOIN users ON comments.id_user = users.id_user WHERE comments.id_event = :mainevent');
+        $result = $data->prepare("SELECT * FROM comments INNER JOIN users ON comments.id_user = users.id_user WHERE comments.id_event = :mainevent ORDER BY date_post");
         $result->bindValue(':mainevent', $_SESSION['mainevent']);
         $result->execute();
         $comments = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -156,6 +156,7 @@ if(!isset($_SESSION['mainevent'])) {
                 <?php 
                   echo $comment['pseudo'];
                 ?></p>
+                <span class="post-date"><?php echo date('d-m-Y', strtotime($comment['date_post'])) ?></span>
               <p class="comment__description"><?= $comment['content']; ?></p>
               <?php 
                 if($_SESSION['name']) {

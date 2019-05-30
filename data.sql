@@ -1,6 +1,6 @@
-CREATE DATABASE test CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+CREATE DATABASE to_go_out_db CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-USE test;
+USE to_go_out_db;
 
 CREATE TABLE users (
   id_user INT(3) NOT NULL AUTO_INCREMENT,
@@ -23,6 +23,7 @@ CREATE TABLE comments (
   id_comment INT(5) NOT NULL AUTO_INCREMENT,
   id_user INT(3) NOT NULL,
   id_event INT(4) NOT NULL,
+  date_post DATE NOT NULL,
   content TEXT NOT NULL,
   PRIMARY KEY (id_comment)
 ) ENGINE=INNODB;
