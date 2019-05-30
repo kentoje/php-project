@@ -1,6 +1,11 @@
 <?php 
 require_once 'config/bootstrap.php';
 $data = App\Database::$pdo;
+
+if(!isset($_SESSION['mainevent'])) {
+  $_SESSION['mainevent'] = 1;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -71,7 +76,7 @@ $data = App\Database::$pdo;
         </form>
       </div>
 
-    <h1 class="big__title">Découvrez les meilleurs évènements de la journée avec love to go out</h1>
+    <h1 class="big__title">Découvrez les meilleurs évènements sur Paris</h1>
   </header>
 
   <nav class="categorie">
@@ -95,32 +100,31 @@ $data = App\Database::$pdo;
     echo '<pre>' . print_r($_SESSION['name'], true) . '</pre>'; */
     /* echo $_SESSION['name']->getName(); */
     /* echo '<pre>' . print_r($_SESSION, true) . '</pre>';  */
-  
+
     $result = $data->prepare('SELECT * FROM events WHERE id_event = :mainevent');
     $result->bindValue(':mainevent', $_SESSION['mainevent']);
     $result->execute();
     $event = $result->fetch(PDO::FETCH_ASSOC);
+    // $mainEvent = new App\Event($event['id_event'], $event['title'], $event['description'], $event['image'], $event['site']);
   ?>
-    <article>
-      <div>
-        <img src="./img/<?php echo $event['image']?>">
-      </div>
-      <div>
-        <div class="part">
-          <h3><?php echo $event['title']?></h3>
-        </div>
+
+  <article class="main-event">
+    <div class="main-event-header">
+      <img src="./img/<?php echo $event['image']?>">
+      <div class="main-event-title-section">
+        <h3><?php echo $event['title']?></h3>
         <div class="part avis">
           <div class="buttonlike">
             <img src="./img/like.png"/>
           </div>  
           <p>97</p>
         </div>
-        <div class="part">
-          <div class="button"><a href="<?php echo $event['site']?>" target="_blank">Informations</a></div>
-        </div>
-      </div>    
-    </article>
+        <div class="button"><a href="<?php echo $event['site']?>" target="_blank">Informations</a></div>
+      </div>
+    </div>
 
+    <p class="event-description"><?php echo $event['description']?></p>
+  </article>
 
     <div class="comments">
       <?php 
@@ -142,6 +146,17 @@ $data = App\Database::$pdo;
                   echo $comment['pseudo'];
                 ?></p>
               <p class="comment__description"><?= $comment['content']; ?></p>
+              <?php 
+                if($_SESSION['name']) {
+                  if ($_SESSION['name']->getName() == $comment['pseudo']) {
+                    ?>
+                    <form method="post" action="./actions/deletecomment.php">
+                      <button type="submit" name="deletecomment" value="<?php echo $comment['id_comment']?>">Supprimer</button>
+                    </form>
+                    <?php
+                  }
+                }
+              ?>
             </div>
           </div>
         <?php endforeach; ?>
@@ -175,15 +190,18 @@ $data = App\Database::$pdo;
           <h3><?php echo $event['title'] ?></h3>
         </div>
         <div class="part avis">
-          <div class="buttonlike">
+          <!-- <div class="buttonlike">
             <img src="./img/like.png"/>
-          </div>  
-          <p>77</p>
-          <p><a>Voir avis</a></p>
+          </div>   -->
+          <!-- <p>77</p>
+          <p><a>Voir avis</a></p> -->
         </div>
-        <div class="part">
-          <div class="button"><a href="<?php echo $event['site'] ?>" target="_blank">Informations</a></div>
-        </div>
+        <!-- <div class="part">
+          <div class="button"><a href="" target="_blank">Informations</a></div>
+        </div> -->
+        <form method="post" action="./actions/event.php">
+          <button type="submit" name="mainevent" value="<?php echo $event['id_event']?>">Voir l'évènement</button>
+        </form>
       </div>    
     </article>
     <?php endforeach; ?>
@@ -205,7 +223,7 @@ $data = App\Database::$pdo;
         <li><img src="./img/twitter.png"/></li>
       </ul>
     </nav>
-    
+
   </footer>  
 </body>
 </html>
