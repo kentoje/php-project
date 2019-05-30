@@ -7,7 +7,7 @@ $data = App\Database::$pdo;
 if($_POST['pseudo'] && $_POST['password']) {
 
   //check for existing user in DB
-  $pseudo = htmlspecialchars($_POST['pseudo']);
+  $pseudo = trim(htmlspecialchars($_POST['pseudo']));
   $password = htmlspecialchars($_POST['password']);
 
   $users = $data->prepare('SELECT * FROM users WHERE pseudo = :pseudo');
