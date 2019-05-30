@@ -1,3 +1,7 @@
+<?php 
+require_once 'config/bootstrap.php';
+$data = App\Database::$pdo;
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,18 +22,38 @@
 
   <header>
       <nav>
+      <?php 
+      /* echo '<pre>' . print_r($_SESSION, true) . '</pre>'; */
+      if(isset($_SESSION['name'])) {
+        ?>
+        <ul>
+          <li class="button"> <a  href="./actions/disconnection.php"><p>Déconnexion</p></a></li>
+          <li class="name"><?= $_SESSION['name']->getName(); ?></li>
+          <li class="logo"><img src="./img/logo.png"/></li>
+        </ul>
+         
+        <?php
+      } else {
+        ?>
         <ul>
           <li id="signin-button" class="button"><p>Inscrivez-vous</p></li>
           <li id="login-button" class="connexion">Se connecter</li>
           <li class="logo"><img src="./img/logo.png"/></li>
         </ul>
+        <?php
+      }
+
+      ?>
+    
       </nav>
+
+
       <div class="pop-up" id="signin-form">
         <h1 class="big__title2">Hello Friend !</h1>
         <p>Inscris-toi et reste au courant des évènements cool à Paris</p>
         <form method="post" action="./actions/register.php">
           <input type="text" name="name" placeholder="Nom">
-          <input type="text" name="email" placeholder="E-mail">
+          <input type="email" name="email" placeholder="E-mail">
           <input type="password" name="password" placeholder="Mot de passe">
           <input type="submit" name="submit" value="Envoyer">
           <div id="signin-close" class="close-icon"></div>
@@ -40,7 +64,7 @@
         <h1 class="big__title2">Hello Friend !</h1>
         <p>Connecte-toi et reste au courant des évènements cool à Paris</p>        
         <form action="./actions/connection.php" method="post">
-          <input type="text" name="pseudo" id="pseudo" placeholder="E-mail">
+          <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo">
           <input type="password" name="password" id="password" placeholder="Mot de passe">
           <input type="submit" name="ajouter" value="Envoyer">
           <div id="login-close" class="close-icon"></div>
@@ -61,72 +85,89 @@
     </nav>
 
   <main>
-    <!-- <?php /* var_dump($_SESSION); */ ?> -->
+  <?php 
+    /* echo '<pre>' . print_r($_SESSION, true) . '</pre>';
+    echo '<pre>' . print_r($_SESSION['name'], true) . '</pre>'; */
+    /* echo $_SESSION['name']->getName(); */
+    /* echo '<pre>' . print_r($_SESSION, true) . '</pre>';  */
+  
+    $result = $data->prepare('SELECT * FROM events WHERE id_event = :mainevent');
+    $result->bindValue(':mainevent', $_SESSION['mainevent']);
+    $result->execute();
+    $event = $result->fetch(PDO::FETCH_ASSOC);
+  ?>
     <article>
       <div>
-        <img src="./img/vangogh.png">
+        <img src="./img/<?php echo $event['image']?>">
       </div>
       <div>
         <div class="part">
-          <h3>Découvrez l'exposition des lumières Van-Gogh</h3>
+          <h3><?php echo $event['title']?></h3>
         </div>
         <div class="part avis">
           <div class="buttonlike">
             <img src="./img/like.png"/>
           </div>  
           <p>97</p>
-          <p><a>Voir avis</a></p>
         </div>
         <div class="part">
-          <div class="button"><p>Participer</p></div>
+          <div class="button"><a href="<?php echo $event['site']?>" target="_blank">Informations</a></div>
         </div>
       </div>    
     </article>
 
+
     <div class="comments">
-    <div class="comment">
-        <div class="comment__avatar">
-          <img class="avatar"
+      <?php 
+        $result = $data->prepare('SELECT * FROM comments INNER JOIN users ON comments.id_user = users.id_user WHERE comments.id_event = :mainevent');
+        $result->bindValue(':mainevent', $_SESSION['mainevent']);
+        $result->execute();
+        $comments = $result->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($comments as $comment) : ?>
+          <div class="comment">
+            <div class="comment__avatar">
+              <img class="avatar"
                 src="img/user.jpg"
                 alt="user" />
-        </div>
-        <div class="comment__text">
-          <p class="comment__author">Rene Quiles</p>
-          <p class="comment__description">A ne pas manquer.</p>
-        </div>
-      </div>
-      <div class="comment">
-        <div class="comment__avatar">
-          <img class="avatar"
-                src="img/user.jpg"
-                alt="user" />
-        </div>
-        <div class="comment__text">
-          <p class="comment__author">Romane Mont</p>
-          <p class="comment__description">Exposition magnifique.</p>
-        </div>
-      </div>
-      <form action="actions/comment.php">
+            </div>
+            <div class="comment__text">
+              <p class="comment__author">
+                <?php 
+                  echo $comment['pseudo'];
+                ?></p>
+              <p class="comment__description"><?= $comment['content']; ?></p>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      <form action="actions/comment.php" method="post">
         <div class="commentform">
             <div class="commentform__avatar">
-            <img class="avatar"
-                  src="img/user.jpg"
-                  alt="user" />
+            
             </div>
-            <input id="comment__input" class="input commentform__field" name="message"
+            <input id="comment__input" class="input commentform__field" name="comment"
               placeholder="Ajouter un commentaire..."/>
-            <input class="button commentform__button" type="submit" value="Envoyer" />
+            <input class="button commentform__button" name="submit" type="submit" value="Envoyer" />
         </div>
       </form>
     </div>
 
+    <?php 
+      $result = $data->prepare('SELECT * FROM events WHERE id_event != :mainevent');
+      $result->bindValue(':mainevent', $_SESSION['mainevent']);
+      $result->execute();
+      $events = $result->fetchAll(PDO::FETCH_ASSOC);
+      foreach ($events as $event) : 
+    ?>
+
     <article>
       <div>
-        <img src="./img/welovegreen.jpg">
+          <img src="./img/<?php echo $event['image'] ?>">
+        </a>
       </div>
       <div>
         <div class="part">
-          <h3>Découvrez le festival we love green</h3>
+          <h3><?php echo $event['title'] ?></h3>
         </div>
         <div class="part avis">
           <div class="buttonlike">
@@ -136,51 +177,11 @@
           <p><a>Voir avis</a></p>
         </div>
         <div class="part">
-          <div class="button"><p>Participer</p></div>
+          <div class="button"><a href="<?php echo $event['site'] ?>" target="_blank">Informations</a></div>
         </div>
       </div>    
     </article>
-
-    <article>
-      <div>
-        <img src="./img/poissonlune.jpg">
-      </div>
-      <div>
-        <div class="part">
-          <h3>Découvrez le bar éphémère poisson lune</h3>
-        </div>
-        <div class="part avis">
-          <div class="buttonlike">
-            <img src="./img/like.png"/>
-          </div>  
-          <p>67</p>
-          <p><a>Voir avis</a></p>
-        </div>
-        <div class="part">
-          <div class="button"><p>Participer</p></div>
-        </div>
-      </div>    
-    </article>
-
-    <article>
-      <div>
-        <img src="./img/ocean.jpg">
-      </div>
-      <div>
-        <div class="part">
-          <h3>Découvrez la fête de l'ocean 2019 à Paris</h3>
-        </div>
-        <div class="part avis">
-          <div class="buttonlike">
-            <img src="./img/like.png"/>
-          </div>  
-          <p>28</p>
-          <p><a>Voir avis</a></p>
-        </div>
-        <div class="part">
-          <div class="button"><p>Participer</p></div>
-        </div>
-      </div>
+    <?php endforeach; ?>
   </main>
 
   <footer>

@@ -203,13 +203,19 @@ header nav ul li.connexion {
   color: #0a1765;
 }
 
+header nav ul li.name {
+  margin-top: 2.85%;
+  margin-right: 15px;
+}
+
 header nav ul li.connexion:hover {
   font-weight: 600;
   color: #0a1765;
+  cursor: pointer;
 }
 
 
-header nav ul li:hover {
+header nav ul li:hover:not(li.name) {
   cursor: pointer;
   color: #EE7256;
 }
@@ -375,6 +381,10 @@ main article div:nth-child(2) .part .button {
   text-align: center;
   line-height: 2.5rem;
   color: white;
+}
+
+.button a {
+  text-decoration: none;
 }
 
  .avatar {
@@ -609,3 +619,12 @@ footer nav ul li:hover{
   margin-left: 10px;
 }
 
+
+.disconnection {
+  background-color: #EE7256;
+  border-radius: 4px;
+  height: 40px;
+  transition: 0.3s;
+  color:white;
+  font-weight: 600;
+}

@@ -11,7 +11,7 @@ class Comment {
   public function __construct( $idComment, $idUser, $idEvent, $content )
   {
     $this->idComment = $idComment;
-    $this->isUser = $idUser;
+    $this->idUser = $idUser;
     $this->idEvent = $idEvent;
     $this->content = $content;
   }
@@ -28,11 +28,11 @@ class Comment {
     $this->idUser = $idUser;
   }
   
-  public function setIdEvent( int $idEvent )
+  public function setEvent( string $idEvent )
   {
     $this->idEvent = $idEvent;
   }
-  
+
   public function setContent( string $content )
   {
     $this->content = $content;
@@ -49,8 +49,8 @@ class Comment {
   {
     return $this->idUser;
   }
-  
-  public function getIdEvent()
+
+  public function getEvent()
   {
     return $this->idEvent;
   }
@@ -62,20 +62,20 @@ class Comment {
 
   public function sendDb()
   {
-    $stmt = App::connect_database()->prepare("  INSERT INTO comments (
+    $stmt = Database::$pdo->prepare("  INSERT INTO comments (
       id_user,
       id_event,
-      content,
-    ) VALUES (:user, :event, :content)");
+      content
+    ) VALUES (:user, :idevent, :content)");
     $stmt->execute(
       [
         'user'    => $this->idUser,
-        'event' => $this->isEvent,
-        'content'     => $this->content
+        'idevent' => $this->idEvent,
+        'content' => $this->content
       ]
     );
-    $commentaire = $stmt->fetch();
-    return $commentaire;
+    /* $commentaire = $stmt->fetch();
+    return $commentaire; */
   }
 }
 
