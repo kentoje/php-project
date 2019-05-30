@@ -24,3 +24,34 @@ loginButton.addEventListener('click', function() {
 loginClose.addEventListener('click', function() {
   sloginForm.classList.remove('visible')
 })
+
+/* API METEO */
+/* http://api.openweathermap.org/data/2.5/weather?q=Paris,FR&APPID=fefe2c3f17fe5983e13d023ae5f8f965 */
+const city = 'Paris'
+const country = 'FR'
+const key = 'fefe2c3f17fe5983e13d023ae5f8f965'
+const url = 'http://api.openweathermap.org/data/2.5/weather'
+const interval = 600000
+
+const weather = document.querySelector('.weather')
+const weatherCity = document.querySelector('.weather__city')
+const weatherType = document.querySelector('.weather__type')
+const weatherTemp = document.querySelector('.weather__temp')
+
+const getWeather = () => {
+  fetch( `${url}?q=${city},${country}&APPID=${key}&units=metric` )
+  .then( response => {
+    return response.json()
+  }).then( data => {
+    weatherCity.innerHTML = data.name
+    weatherType.innerHTML = data.weather[0].main
+    weatherTemp.innerHTML = `${data.main.temp} °C`
+  } )
+  .catch( error => console.log( error ) )
+}
+
+getWeather()
+
+setInterval(() => {
+  getWeather()
+}, interval);

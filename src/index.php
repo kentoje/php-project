@@ -85,6 +85,11 @@ $data = App\Database::$pdo;
     </nav>
 
   <main>
+      <div class="weather">
+        <h2 class="weather__city"></h2>
+        <h2 class="weather__type"></h2>
+        <h2 class="weather__temp"></h2>
+      </div>
   <?php 
     /* echo '<pre>' . print_r($_SESSION, true) . '</pre>';
     echo '<pre>' . print_r($_SESSION['name'], true) . '</pre>'; */
