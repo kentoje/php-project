@@ -1,6 +1,5 @@
 <?php
 
-/* TODO: Revoir la sécurité, inexistantes. */
 
 require_once '../config/bootstrap.php';
 
@@ -20,13 +19,13 @@ if ( !isset( $_POST['submit'] ) ) {
   if ( !$_SESSION['name'] ) {
     header('location: ../pages/notconnected.php');
   }
-  $comment = $_POST['comment'];
+  $comment = htmlspecialchars($_POST['comment']);
 
   if ( empty($comment) ) {
     array_push( $errors, 'Votre commentaire est vide !' );
     // var_dump( $errors );
   } else { 
-    $comment = new App\Comment('', $_SESSION['name']->getId(), $_SESSION['mainevent'], htmlspecialchars($_POST['comment']));
+    $comment = new App\Comment('', $_SESSION['name']->getId(), $_SESSION['mainevent'], $comment);
     // var_dump($comment);
     $comment->sendDb();
     header('location: ../index.php');

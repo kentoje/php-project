@@ -1,5 +1,4 @@
 <?php 
-/* TODO: Revoir la sécurité, inexistantes. */
 
 require_once '../config/bootstrap.php';
 
