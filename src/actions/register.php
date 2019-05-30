@@ -17,20 +17,24 @@ if ( isset( $_POST['submit'] ) ) {
   } else {
     header('location: ../pages/wrong.php');
   }
-  $username = htmlspecialchars($_POST['name']);
-  $password = password_hash( $_POST['password'], PASSWORD_DEFAULT );
-
+  
   if ( empty($email) ) {
     array_push( $errors, 'Vous devez mettre un email !' );
+    header('location: ../pages/wrong.php');
   }
 
   if ( empty($username) ) {
     array_push( $errors, 'Vous devez mettre un pseudo !' );
+    header('location: ../pages/wrong.php');
   }
 
   if ( empty($password) ) {
     array_push( $errors, 'Vous devez mettre un mot de passe !' );
+    header('location: ../pages/wrong.php');
   }
+
+  $username = htmlspecialchars($_POST['name']);
+  $password = password_hash( $_POST['password'], PASSWORD_DEFAULT );
 
   /* Check DB if user exists */
   $userCheckQuery = "SELECT * FROM users WHERE pseudo = :name OR email = :email LIMIT 1";

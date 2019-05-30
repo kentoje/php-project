@@ -3,6 +3,7 @@ require_once '../config/bootstrap.php';
 $data = App\Database::$pdo;
 
 
+
 if($_POST['pseudo'] && $_POST['password']) {
 
   //check for existing user in DB
@@ -37,4 +38,6 @@ if($_POST['pseudo'] && $_POST['password']) {
   } else {
     header('location: ../pages/wronglogin.php');    
   }
+} else {
+  header('location: ../pages/wrong.php');
 }

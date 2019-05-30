@@ -12,7 +12,7 @@
 <body>
   <main class="main">
     <div class="error__blocs">
-      <h1 class="error__title">Oops l'email semble incorrect</h1>
+      <h1 class="error__title">Oops quelque chose ne va pas.</h1>
       <a class="error__link" href="../index.php">Retour à la homepage</a>
     </div>
   </main>
