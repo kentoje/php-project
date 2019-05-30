@@ -91,5 +91,3 @@ class Comment {
     return $commentaire; */
   }
 }
-
-
