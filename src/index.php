@@ -28,6 +28,7 @@ $data = App\Database::$pdo;
         ?>
         <ul>
           <li class="button"> <a  href="./actions/disconnection.php"><p>Déconnexion</p></a></li>
+          <li class="name"><?= $_SESSION['name']->getName(); ?></li>
           <li class="logo"><img src="./img/logo.png"/></li>
         </ul>
          
@@ -53,7 +54,7 @@ $data = App\Database::$pdo;
         <form method="post" action="./actions/register.php">
           <input type="text" name="name" placeholder="Nom">
           <input type="text" name="email" placeholder="E-mail">
-          <input type="text" name="password" placeholder="Mot de passe">
+          <input type="password" name="password" placeholder="Mot de passe">
           <input type="submit" name="submit" value="Envoyer">
           <div id="signin-close" class="close-icon"></div>
         </form>
@@ -64,7 +65,7 @@ $data = App\Database::$pdo;
         <p>Connecte-toi et reste au courant des évènements cool à Paris</p>        
         <form action="./actions/connection.php" method="post">
           <input type="text" name="pseudo" id="pseudo" placeholder="E-mail">
-          <input type="text" name="password" id="password" placeholder="Mot de passe">
+          <input type="password" name="password" id="password" placeholder="Mot de passe">
           <input type="submit" name="ajouter" value="Envoyer">
           <div id="login-close" class="close-icon"></div>
         </form>
@@ -85,7 +86,9 @@ $data = App\Database::$pdo;
 
   <main>
   <?php 
-    echo '<pre>' . print_r($_SESSION, true) . '</pre>'; 
+    /* echo '<pre>' . print_r($_SESSION, true) . '</pre>';
+    echo '<pre>' . print_r($_SESSION['name'], true) . '</pre>'; */
+    /* echo $_SESSION['name']->getName(); */
   ?>
     <article>
       <div>
