@@ -565,3 +565,8 @@ div.button > a {
   color: #EE7256;
   font-size: 12px;
 }
+
+.buttons__thumbs {
+  display: flex;
+  flex-direction: row;
+}
