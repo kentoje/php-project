@@ -7,7 +7,8 @@ use PDO;
 class Database {
   const DB_SGBD   = 'mysql';
   const DB_HOST   = '127.0.0.1';
-  const DB_DBNAME = 'social_events';
+  // const DB_DBNAME = 'social_events';
+  const DB_DBNAME = 'test';
   const DB_USER   = 'root';
   const DB_PASS   = 'root';
   public static $pdo;

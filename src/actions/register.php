@@ -49,14 +49,14 @@ if ( isset( $_POST['submit'] ) ) {
   }
 
   if ( count($errors) == 0 ) {
-    $query = "INSERT INTO users(pseudo, email, password, photo) VALUES ('$username', '$email', '$password', '')";
+    $query = "INSERT INTO users(pseudo, email, password) VALUES ('$username', '$email', '$password')";
     $insertReq = App\Database::$pdo->exec( $query );
     $lastId = App\Database::getLastIdUser();
-    var_dump($lastId);
+    // var_dump($lastId);
     $utilisateur = new App\User($lastId[0],$_POST['name'],$_POST['email'],$password,'');
     $_SESSION['name'] = $utilisateur;
     $_SESSION['success'] = 'Vous êtes connecté !';
-    var_dump($_SESSION);
+    // var_dump($_SESSION);
     header( 'location: ../index.php' );
   }
 }
