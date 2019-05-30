@@ -1,6 +1,11 @@
 <?php 
 require_once 'config/bootstrap.php';
 $data = App\Database::$pdo;
+
+if(!isset($_SESSION['mainevent'])) {
+  $_SESSION['mainevent'] = 1;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,11 +28,12 @@ $data = App\Database::$pdo;
   <header>
       <nav>
       <?php 
-      
+      /* echo '<pre>' . print_r($_SESSION, true) . '</pre>'; */
       if(isset($_SESSION['name'])) {
         ?>
         <ul>
-          <li class="button"><a href="./actions/disconnection.php"><p>Déconnexion</p></a></li>
+          <li class="button"> <a  href="./actions/disconnection.php"><p>Déconnexion</p></a></li>
+          <li class="name"><?= $_SESSION['name']->getName(); ?></li>
           <li class="logo"><img src="./img/logo.png"/></li>
         </ul>
          
@@ -52,8 +58,8 @@ $data = App\Database::$pdo;
         <p>Inscris-toi et reste au courant des évènements cool à Paris</p>
         <form method="post" action="./actions/register.php">
           <input type="text" name="name" placeholder="Nom">
-          <input type="text" name="email" placeholder="E-mail">
-          <input type="text" name="password" placeholder="Mot de passe">
+          <input type="email" name="email" placeholder="E-mail">
+          <input type="password" name="password" placeholder="Mot de passe">
           <input type="submit" name="submit" value="Envoyer">
           <div id="signin-close" class="close-icon"></div>
         </form>
@@ -63,8 +69,8 @@ $data = App\Database::$pdo;
         <h1 class="big__title2">Hello Friend !</h1>
         <p>Connecte-toi et reste au courant des évènements cool à Paris</p>        
         <form action="./actions/connection.php" method="post">
-          <input type="text" name="pseudo" id="pseudo" placeholder="E-mail">
-          <input type="text" name="password" id="password" placeholder="Mot de passe">
+          <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo">
+          <input type="password" name="password" id="password" placeholder="Mot de passe">
           <input type="submit" name="ajouter" value="Envoyer">
           <div id="login-close" class="close-icon"></div>
         </form>
@@ -85,34 +91,38 @@ $data = App\Database::$pdo;
 
   <main>
   <?php 
-    echo '<pre>' . print_r($_SESSION, true) . '</pre>'; 
-  
+    /* echo '<pre>' . print_r($_SESSION, true) . '</pre>';
+    echo '<pre>' . print_r($_SESSION['name'], true) . '</pre>'; */
+    /* echo $_SESSION['name']->getName(); */
+    /* echo '<pre>' . print_r($_SESSION, true) . '</pre>';  */
+
     $result = $data->prepare('SELECT * FROM events WHERE id_event = :mainevent');
     $result->bindValue(':mainevent', $_SESSION['mainevent']);
     $result->execute();
     $event = $result->fetch(PDO::FETCH_ASSOC);
+    // $mainEvent = new App\Event($event['id_event'], $event['title'], $event['description'], $event['image'], $event['site']);
   ?>
-    <article>
-      <div>
-        <img src="./img/<?php echo $event['image']?>">
+
+<article>
+    <div>
+      <img src="./img/<?php echo $event['image']?>">
+    </div>
+    <div>
+      <div class="part">
+        <h3><?php echo $event['title']?></h3>
       </div>
-      <div>
-        <div class="part">
-          <h3><?php echo $event['title']?></h3>
-        </div>
-        <div class="part avis">
-          <div class="buttonlike">
-            <img src="./img/like.png"/>
-          </div>  
-          <p>97</p>
-        </div>
-        <div class="part">
-          <div class="button"><a href="<?php echo $event['site']?>" target="_blank">Informations</a></div>
-        </div>
-      </div>    
-    </article>
-
-
+      <div class="part avis">
+        <div class="buttonlike">
+          <img src="./img/like.png"/>
+        </div>  
+        <p>97</p>
+      </div>
+      <div class="part">
+        <div class="button"><a href="<?php echo $event['site']?>" target="_blank">Informations</a></div>
+      </div>
+    </div>    
+  </article>
+    
     <div class="comments">
       <?php 
         $result = $data->prepare('SELECT * FROM comments INNER JOIN users ON comments.id_user = users.id_user WHERE comments.id_event = :mainevent');
@@ -166,15 +176,18 @@ $data = App\Database::$pdo;
           <h3><?php echo $event['title'] ?></h3>
         </div>
         <div class="part avis">
-          <div class="buttonlike">
+          <!-- <div class="buttonlike">
             <img src="./img/like.png"/>
-          </div>  
-          <p>77</p>
-          <p><a>Voir avis</a></p>
+          </div>   -->
+          <!-- <p>77</p>
+          <p><a>Voir avis</a></p> -->
         </div>
-        <div class="part">
-          <div class="button"><a href="<?php echo $event['site'] ?>" target="_blank">Informations</a></div>
-        </div>
+        <!-- <div class="part">
+          <div class="button"><a href="" target="_blank">Informations</a></div>
+        </div> -->
+        <form method="post" action="./actions/event.php">
+          <button type="submit" name="mainevent" value="<?php echo $event['id_event']?>">Voir l'évènement</button>
+        </form>
       </div>    
     </article>
     <?php endforeach; ?>
