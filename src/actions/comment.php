@@ -21,11 +21,12 @@ if ( !isset( $_POST['submit'] ) ) {
     header('location: ../pages/notconnected.php');
   }
   $comment = $_POST['comment'];
+
   if ( empty($comment) ) {
     array_push( $errors, 'Votre commentaire est vide !' );
     // var_dump( $errors );
   } else { 
-    $comment = new App\Comment('', $_SESSION['name']->getId(), $_POST['comment'] );
+    $comment = new App\Comment('', $_SESSION['name']->getId(), $_SESSION['mainevent'], $_POST['comment']);
     // var_dump($comment);
     $comment->sendDb();
     header('location: ../index.php');
