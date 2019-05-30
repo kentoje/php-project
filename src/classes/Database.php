@@ -9,7 +9,7 @@ class Database {
   const DB_HOST   = 'localhost';
   const DB_DBNAME = 'to_go_out_db';
   const DB_USER   = 'root';
-  const DB_PASS   = 'root';
+  const DB_PASS   = 'rootroot';
   public static $pdo;
 
   public static function connect_database() 
