@@ -558,3 +558,8 @@ div.button > a {
 .button__tooling--bottom {
   margin-top: 12px;
 }
+
+.buttons__thumbs {
+  display: flex;
+  flex-direction: row;
+}

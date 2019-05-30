@@ -157,7 +157,7 @@ if(!isset($_SESSION['mainevent'])) {
                 ?></p>
               <p class="comment__description"><?= $comment['content']; ?></p>
               <?php 
-                if($_SESSION['name']) {
+                if(isset($_SESSION['name'])) {
                   if ($_SESSION['name']->getName() == $comment['pseudo']) {
                     ?>
                     <form class="delete-post" method="post" action="./actions/deletecomment.php">

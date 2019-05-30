@@ -23,18 +23,19 @@ if ( isset( $_POST['submit'] ) ) {
     header('location: ../pages/wrong.php');
   }
 
-  if ( empty($username) ) {
-    array_push( $errors, 'Vous devez mettre un pseudo !' );
-    header('location: ../pages/wrong.php');
-  }
-
-  if ( empty($password) ) {
+  if ( empty($_POST['password']) ) {
     array_push( $errors, 'Vous devez mettre un mot de passe !' );
     header('location: ../pages/wrong.php');
+  } else {
+    $password = password_hash( $_POST['password'], PASSWORD_DEFAULT );
   }
 
-  $username = htmlspecialchars($_POST['name']);
-  $password = password_hash( $_POST['password'], PASSWORD_DEFAULT );
+  if ( empty($_POST['name']) ) {
+    array_push( $errors, 'Vous devez mettre un pseudo !' );
+    header('location: ../pages/wrong.php');
+  } else {
+    $username = trim(htmlspecialchars($_POST['name']));
+  }
 
   /* Check DB if user exists */
   $userCheckQuery = "SELECT * FROM users WHERE pseudo = :name OR email = :email LIMIT 1";
@@ -59,11 +60,9 @@ if ( isset( $_POST['submit'] ) ) {
     $query = "INSERT INTO users(pseudo, email, password) VALUES ('$username', '$email', '$password')";
     $insertReq = App\Database::$pdo->exec( $query );
     $lastId = App\Database::getLastIdUser();
-    // var_dump($lastId);
-    $utilisateur = new App\User($lastId[0],$_POST['name'],$_POST['email'],$password,'');
+    $utilisateur = new App\User( $lastId[0], $_POST['name'], $_POST['email'], $password, '' );
     $_SESSION['name'] = $utilisateur;
     $_SESSION['success'] = 'Vous êtes connecté !';
-    // var_dump($_SESSION);
     header( 'location: ../index.php' );
   }
 }
