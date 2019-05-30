@@ -278,6 +278,9 @@ input {
   grid-column: 0.5;
   grid-row-start: 2;
   margin: 0 0 1.6rem 0;
+  height: 200px;
+  width: 800px;
+  cursor: text;
 }
 .commentform__button {
   grid-column-start: 2;
@@ -532,4 +535,19 @@ div.button > a {
 
 .number {
   padding: 0 10px;
+}
+
+.button__tooling {
+  width: 100px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #EE7256;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: bold;
+  border: none;
+}
+
+.button__tooling--bottom {
+  margin-top: 12px;
 }
