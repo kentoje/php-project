@@ -21,12 +21,14 @@ if ( !isset( $_POST['idcomment'] ) ) {
   }
   $comment = htmlspecialchars($_POST['comment']);
   $idcomment = $_POST['idcomment'];
+  date_default_timezone_set('Europe/Paris');
+  $date = date("Y/m/d");
 
   if ( empty($comment) ) {
     array_push( $errors, 'Votre commentaire est vide !' );
     // var_dump( $errors );
   } else { 
-    $comment = new App\Comment($idcomment, $_SESSION['name']->getId(), $_SESSION['mainevent'], $comment);
+    $comment = new App\Comment($idcomment, $_SESSION['name']->getId(), $_SESSION['mainevent'], $comment, $date);
     // var_dump($comment);
     $comment->updateDb();
 

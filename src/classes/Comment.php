@@ -7,13 +7,15 @@ class Comment {
   private $idUser;
   private $idEvent;
   private $content;
+  private $date;
 
-  public function __construct( $idComment, $idUser, $idEvent, $content )
+  public function __construct( $idComment, $idUser, $idEvent, $content, $date)
   {
     $this->idComment = $idComment;
     $this->idUser = $idUser;
     $this->idEvent = $idEvent;
     $this->content = $content;
+    $this->date = $date;
   }
 
   /* setters */
@@ -65,13 +67,15 @@ class Comment {
     $stmt = Database::$pdo->prepare("  INSERT INTO comments (
       id_user,
       id_event,
-      content
-    ) VALUES (:user, :idevent, :content)");
+      content,
+      date_post
+    ) VALUES (:user, :idevent, :content, :datepost)");
     $stmt->execute(
       [
         'user'    => $this->idUser,
         'idevent' => $this->idEvent,
-        'content' => $this->content
+        'content' => $this->content,
+        'datepost' => $this->date
       ]
     );
     /* $commentaire = $stmt->fetch();
@@ -80,11 +84,12 @@ class Comment {
 
   public function updateDb()
   {
-    $stmt = Database::$pdo->prepare("  UPDATE comments SET content = :content WHERE id_comment = :idcomment ");
+    $stmt = Database::$pdo->prepare("  UPDATE comments SET content = :content, date_post = :datepost WHERE id_comment = :idcomment ");
     $stmt->execute(
       [
         'content'      => $this->content,
-        'idcomment'    => $this->idComment
+        'idcomment'    => $this->idComment,
+        'datepost'     => $this->date
       ]
     );
     /* $commentaire = $stmt->fetch();

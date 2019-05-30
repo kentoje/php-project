@@ -20,12 +20,14 @@ if ( !isset( $_POST['submit'] ) ) {
     header('location: ../pages/notconnected.php');
   }
   $comment = htmlspecialchars($_POST['comment']);
+  date_default_timezone_set('Europe/Paris');
+  $date = date("Y/m/d");
 
   if ( empty($comment) ) {
     array_push( $errors, 'Votre commentaire est vide !' );
     // var_dump( $errors );
   } else { 
-    $comment = new App\Comment('', $_SESSION['name']->getId(), $_SESSION['mainevent'], $comment);
+    $comment = new App\Comment('', $_SESSION['name']->getId(), $_SESSION['mainevent'], $comment, $date);
     // var_dump($comment);
     $comment->sendDb();
     header('location: ../index.php');
