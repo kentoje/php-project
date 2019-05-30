@@ -536,3 +536,18 @@ div.button > a {
 .number {
   padding: 0 10px;
 }
+
+.button__tooling {
+  width: 100px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #EE7256;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: bold;
+  border: none;
+}
+
+.button__tooling--bottom {
+  margin-top: 12px;
+}
