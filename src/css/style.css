@@ -134,6 +134,13 @@ main article div:nth-child(2) .part.avis {
   flex-direction: row;
 }
 
+main article div:nth-child(2) .part.avis.marwane {
+  margin-left: 18%;
+  height: 40px;
+  margin-top: 10%;
+  flex-direction: row;
+}
+
 main article div:nth-child(2) .part.avis .buttonlike {
   margin-left: 7%;
   width: 40px;
