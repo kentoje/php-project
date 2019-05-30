@@ -162,8 +162,8 @@ if(!isset($_SESSION['mainevent'])) {
             <div class="commentform__avatar">
             
             </div>
-            <input id="comment__input" class="input commentform__field" name="comment"
-              placeholder="Ajouter un commentaire..."/>
+            <textarea id="comment__input" class="input commentform__field" name="comment"
+              placeholder="Ajouter un commentaire..." width="800"></textarea>
             <input class="button commentform__button" name="submit" type="submit" value="Envoyer" />
         </div>
       </form>
