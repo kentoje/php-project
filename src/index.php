@@ -100,7 +100,18 @@ if(!isset($_SESSION['mainevent'])) {
       <div class="main-event-title-section">
         <h3><?php echo $event['title']?></h3>
         <div class="part avis">
-          
+        <form action="./actions/like.php" method="post">
+          <button class="like" type="submit" name="vote" value="<?php echo $event['id_event'] ?>"><img src="img/like.png" alt=""></button>
+          <span>
+            <?php
+              $res = $data->prepare('SELECT COUNT(id_user) FROM likes WHERE id_event = :idevent');
+              $res->bindValue(':idevent', $_SESSION['mainevent']);
+              $res->execute();
+              $number = $res->fetch();
+              echo $number[0];
+            ?>
+          </span>
+        </form>
         </div>
         <div class="button"><a href="<?php echo $event['site']?>" target="_blank">Informations</a></div>
       </div>
@@ -145,18 +156,7 @@ if(!isset($_SESSION['mainevent'])) {
             </div>
           </div>
         <?php endforeach; ?>
-        <form action="./actions/like.php" method="post">
-          <button type="submit" name="vote" value="<?php echo $event['id_event'] ?>">Vote trigger</button>
-          <span>
-            <?php
-              $res = $data->prepare('SELECT COUNT(id_user) FROM likes WHERE id_event = :idevent');
-              $res->bindValue(':idevent', $_SESSION['mainevent']);
-              $res->execute();
-              $number = $res->fetch();
-              echo $number[0];
-            ?>
-          </span>
-        </form>
+        
       <form action="actions/comment.php" method="post">
         <div class="commentform">
             <div class="commentform__avatar">

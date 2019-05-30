@@ -9,6 +9,7 @@ p, h3 {
 h3 {
   font-size: 1.125rem;
   color: #0a1765;
+  font-size: 25px;
 }
 
 header {
@@ -515,4 +516,15 @@ div.button > a {
 .delete-post {
   display: flex;
   justify-content: flex-end;
+}
+
+
+
+.like {
+  background-color: rgb(240, 240, 240);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
+  border: none;
+  padding: 15px;
+  display: inline-block;
+  border-radius: 50%;
 }
