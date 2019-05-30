@@ -77,6 +77,20 @@ class Comment {
     /* $commentaire = $stmt->fetch();
     return $commentaire; */
   }
+
+  public function updteDb()
+  {
+    $stmt = Database::$pdo->prepare("  UPDATE comments SET content = :content WHERE id_user = :user AND id_event = :idevent ");
+    $stmt->execute(
+      [
+        'user'    => $this->idUser,
+        'idevent' => $this->idEvent,
+        'content' => $this->content
+      ]
+    );
+    /* $commentaire = $stmt->fetch();
+    return $commentaire; */
+  }
 }
 
 

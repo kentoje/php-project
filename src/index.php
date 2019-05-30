@@ -164,6 +164,10 @@ if(!isset($_SESSION['mainevent'])) {
                     <form class="delete-post" method="post" action="./actions/deletecomment.php">
                       <button type="submit" name="deletecomment" value="<?php echo $comment['id_comment']?>">Supprimer</button>
                     </form>
+
+                    <form class="delete-post" method="post" action="./pages/edit.php">
+                      <button type="submit" name="editcomment" value="<?php echo $comment['id_comment']?>">Editer</button>
+                    </form>
                     
                     <?php
                   }
@@ -176,7 +180,6 @@ if(!isset($_SESSION['mainevent'])) {
       <form action="actions/comment.php" method="post">
         <div class="commentform">
             <div class="commentform__avatar">
-            
             </div>
             <input id="comment__input" class="input commentform__field" name="comment"
               placeholder="Ajouter un commentaire..."/>
