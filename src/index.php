@@ -161,11 +161,11 @@ if(!isset($_SESSION['mainevent'])) {
                   if ($_SESSION['name']->getName() == $comment['pseudo']) {
                     ?>
                     <form class="delete-post" method="post" action="./actions/deletecomment.php">
-                      <button type="submit" name="deletecomment" value="<?php echo $comment['id_comment']?>">Supprimer</button>
+                      <button class="button__tooling" type="submit" name="deletecomment" value="<?php echo $comment['id_comment']?>">Supprimer</button>
                     </form>
 
                     <form class="delete-post" method="post" action="./pages/edit.php">
-                      <button type="submit" name="editcomment" value="<?php echo $comment['id_comment']?>">Editer</button>
+                      <button class="button__tooling button__tooling--bottom" type="submit" name="editcomment" value="<?php echo $comment['id_comment']?>">Éditer</button>
                     </form>
                     
                     <?php
@@ -180,8 +180,8 @@ if(!isset($_SESSION['mainevent'])) {
         <div class="commentform">
             <div class="commentform__avatar">
             </div>
-            <input id="comment__input" class="input commentform__field" name="comment"
-              placeholder="Ajouter un commentaire..."/>
+            <textarea id="comment__input" class="input commentform__field" name="comment"
+              placeholder="Ajouter un commentaire..." width="800"></textarea>
             <input class="button commentform__button" name="submit" type="submit" value="Envoyer" />
         </div>
       </form>
