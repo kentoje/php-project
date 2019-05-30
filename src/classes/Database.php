@@ -3,7 +3,7 @@
 namespace App;
 
 use PDO;
-
+/* hello */
 class Database {
   const DB_SGBD   = 'mysql';
   const DB_HOST   = 'localhost';
