@@ -43,6 +43,13 @@ CREATE TABLE likes (
   PRIMARY KEY (id_like)
 ) ENGINE=INNODB;
 
+CREATE TABLE dislikes (
+  id_dislike INT(5) NOT NULL AUTO_INCREMENT,
+  id_user INT(3) NOT NULL,
+  id_event INT(4) NOT NULL,
+  PRIMARY KEY (id_dislike)
+) ENGINE=INNODB;
+
 CREATE TABLE participations (
   id_participation INT(5) NOT NULL AUTO_INCREMENT,
   id_user INT(3) NOT NULL,

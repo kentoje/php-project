@@ -102,7 +102,7 @@ if(!isset($_SESSION['mainevent'])) {
         <div class="part avis">
         <form action="./actions/like.php" method="post">
           <button class="like" type="submit" name="vote" value="<?php echo $event['id_event'] ?>"><img src="img/like.png" alt=""></button>
-          <span>
+          <span class="number">
             <?php
               $res = $data->prepare('SELECT COUNT(id_user) FROM likes WHERE id_event = :idevent');
               $res->bindValue(':idevent', $_SESSION['mainevent']);
@@ -112,6 +112,22 @@ if(!isset($_SESSION['mainevent'])) {
             ?>
           </span>
         </form>
+
+
+        <form action="./actions/dislike.php" method="post">
+          <button class="like" type="submit" name="vote" value="<?php echo $event['id_event'] ?>"><img src="img/dislike.png" alt=""></button>
+          <span class="number">
+            <?php
+              $res = $data->prepare('SELECT COUNT(id_user) FROM dislikes WHERE id_event = :idevent');
+              $res->bindValue(':idevent', $_SESSION['mainevent']);
+              $res->execute();
+              $number = $res->fetch();
+              echo $number[0];
+            ?>
+          </span>
+        </form>
+
+
         </div>
         <div class="button"><a href="<?php echo $event['site']?>" target="_blank">Informations</a></div>
       </div>
@@ -189,7 +205,7 @@ if(!isset($_SESSION['mainevent'])) {
           <h3><?php echo $event['title'] ?></h3>
         </div>
         <form method="post" action="./actions/event.php">
-          <button class="button__event" type="submit" name="mainevent" value="<?php echo $event['id_event'] ?>">Participer</button>
+          <button class="button__event" type="submit" name="mainevent" value="<?php echo $event['id_event'] ?>">Voir</button>
         </form>
       </div>    
     </article>

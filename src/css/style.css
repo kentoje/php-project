@@ -528,3 +528,8 @@ div.button > a {
   display: inline-block;
   border-radius: 50%;
 }
+
+
+.number {
+  padding: 0 10px;
+}
