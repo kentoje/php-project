@@ -27,7 +27,7 @@ $data = App\Database::$pdo;
       if($_SESSION['name']) {
         ?>
         <ul>
-          <li class="button"> <a  href="./actions/disconnection.php"><p>Déconnexion</p></a></li>
+          <li class="button"><a href="./actions/disconnection.php"><p>Déconnexion</p></a></li>
           <li class="logo"><img src="./img/logo.png"/></li>
         </ul>
          
@@ -148,13 +148,22 @@ $data = App\Database::$pdo;
       </form>
     </div>
 
+    <?php 
+      $result = $data->prepare('SELECT * FROM events WHERE id_event != :mainevent');
+      $result->bindValue(':mainevent', $_SESSION['mainevent']);
+      $result->execute();
+      $events = $result->fetchAll(PDO::FETCH_ASSOC);
+      foreach ($events as $event) : 
+    ?>
+
     <article>
       <div>
-        <img src="./img/welovegreen.jpg">
+          <img src="./img/<?php echo $event['image'] ?>">
+        </a>
       </div>
       <div>
         <div class="part">
-          <h3>Découvrez le festival we love green</h3>
+          <h3><?php echo $event['title'] ?></h3>
         </div>
         <div class="part avis">
           <div class="buttonlike">
@@ -164,51 +173,11 @@ $data = App\Database::$pdo;
           <p><a>Voir avis</a></p>
         </div>
         <div class="part">
-          <div class="button"><p>Participer</p></div>
+          <div class="button"><a href="<?php echo $event['site'] ?>" target="_blank">Informations</a></div>
         </div>
       </div>    
     </article>
-
-    <article>
-      <div>
-        <img src="./img/poissonlune.jpg">
-      </div>
-      <div>
-        <div class="part">
-          <h3>Découvrez le bar éphémère poisson lune</h3>
-        </div>
-        <div class="part avis">
-          <div class="buttonlike">
-            <img src="./img/like.png"/>
-          </div>  
-          <p>67</p>
-          <p><a>Voir avis</a></p>
-        </div>
-        <div class="part">
-          <div class="button"><p>Participer</p></div>
-        </div>
-      </div>    
-    </article>
-
-    <article>
-      <div>
-        <img src="./img/ocean.jpg">
-      </div>
-      <div>
-        <div class="part">
-          <h3>Découvrez la fête de l'ocean 2019 à Paris</h3>
-        </div>
-        <div class="part avis">
-          <div class="buttonlike">
-            <img src="./img/like.png"/>
-          </div>  
-          <p>28</p>
-          <p><a>Voir avis</a></p>
-        </div>
-        <div class="part">
-          <div class="button"><p>Participer</p></div>
-        </div>
-      </div>
+    <?php endforeach; ?>
   </main>
 
   <footer>
