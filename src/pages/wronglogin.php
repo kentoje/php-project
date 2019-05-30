@@ -4,10 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/error.css">
+  <title>WRONG LOGIN</title>
 </head>
 <body>
-  <h1>Identifiant ou mot de passe incorrect</h1>
-  <a href="../index.php">Retour à la page d'accueil</a>
+  <main class="main">
+    <div class="error__blocs">
+      <h1 class="error__title">L'identifiant ou le mot de passe semble incorrect.</h1>
+      <a class="error__link" href="../index.php">Retour à la page d'accueil</a>
+    </div>
+  </main>
 </body>
 </html>
