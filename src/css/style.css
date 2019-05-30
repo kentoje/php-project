@@ -1,171 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
 body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-a {
-  text-decoration: none;
-  color: #fff;
-}
-
-@font-face {
-  font-family: 'Mont';
-  src: url("../fonts/Mont-Regular.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Mont';
-  src: url("../fonts/Mont-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Mont';
-  src: url("../fonts/Mont-Heavy.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-}
-
-html {
   font-family: "Mont";
 }
 
-p,
-h3 {
-  line-height: 152%;
+p, h3 {
+  line-height: 150%;
 }
 
 h3 {
@@ -177,7 +15,7 @@ header {
   background-image: url("../img/background_header.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 51vh;
+  height: 100%;
   width: 100vw;
   margin-bottom: 30px;
 }
@@ -233,61 +71,14 @@ header nav ul li.button {
   margin-top: 2%;
 }
 
-.big__title {
+h1 {
   color: #0a1765;
   text-align: left;
   margin: 9% auto;
-  width: 690px;
+  width: 60%;
   font-size: 3.25rem;
   font-weight: 700;
   line-height: 4.25rem;
-}
-
-
-nav.categorie {
-  background-color: #F5F8FB;
-}
-
-nav.categorie ul {
-  width: 80vw;
-  list-style-type: none;
-  margin-right: 10vw;
-  margin-left: 10vw;
-  padding: 0;
-  overflow: hidden;
-}
-
-nav.categorie ul li {
-  width: 19%;
-  margin-top: 1%;
-  color: #738094;
-  display: inline-block;
-  text-align: center;
-  height: 40px;
-  padding: 0px 15px;
-  transition: 0.3s;
-  text-decoration: none;
-}
-
-nav.categorie ul li.button {
-  color: white;
-  line-height: 2.5rem;
-}
-
-nav.categorie ul li:hover {
-  cursor: pointer;
-  color: #EE7256;
-}
-
-nav.categorie ul li:hover.button {
-  background-color: #F5F8FB;
-}
-
-main {
-  margin-top: 5%;
-  width: 70vw;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 main h2 {
@@ -295,7 +86,7 @@ main h2 {
   font-size: 1.375rem;
 }
 
-main article {
+.other-event {
   margin-top: 3vh;
   margin-left: auto;
   margin-right: auto;
@@ -407,12 +198,17 @@ main article div:nth-child(2) .part .button {
   cursor: pointer;
 }
 
- .comments{
-   margin:0 110px;
- }
+.comments {
+  margin-top: 50px;
+}
 
  .comment{
+  display: flex;
+
   margin-top: 30px;
+  background: white;
+  box-shadow: 1px 1px 10px 2px #e3e5e9;
+  padding: 15px;
  }
 
  .comment__author {
@@ -424,10 +220,6 @@ main article div:nth-child(2) .part .button {
     font-weight: 500;
     color: #738094;
  }
-
-.comment {
-  display: flex;
-}
 
 .comment__avatar{
   float: left;
@@ -450,15 +242,14 @@ main article div:nth-child(2) .part .button {
 
 input {
   margin: 0px 0px 25.5938px;
-  width: 865px;
+  width: 100%;
   height: 158px;
 }
 
 .commentform {
-  display: grid;
-  grid-template-columns: min-content min-content auto;
   margin-top: 30px;
   padding-bottom: 60px; 
+  width: 100%;
 }
 .commentform__avatar {
   margin: 0 1.6rem 0 0;
@@ -481,16 +272,13 @@ footer {
   background-image: url("../img/footer.jpg");
   background-size: cover;
   height: 382px;
-  padding-top: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 footer nav ul {
-  width: 70vw;
   list-style-type: none;
-  margin-left: 15vw;
-  margin-right: 15vw;
-  padding: 0;
-  height: 40px;
 }
 
 footer nav ul li {
@@ -651,6 +439,7 @@ div.button > a {
 /* API METEO */
 
 .weather {
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -659,17 +448,28 @@ div.button > a {
   width: 15%;
   background: #fff;
   box-shadow: 0px 0px 10px 1px rgba(195, 195, 224, 0.2);
-  position: fixed;
-  bottom: 0;
+  bottom: 0%;
   left: 0;
 }
 /* ------------------------------- main event ------------------------ */
 
 .main-event {
-  width: 56vw;
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-event-infos {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
+  width: 100%;
+  background: white;
+}
+
+.main-event-header img {
+  height: 100%;
 }
 
 .main-event-header {
@@ -677,9 +477,7 @@ div.button > a {
   flex-direction: row;
 }
 
-.main-event-header img {
-  width: 55%;
-}
+
 
 .main-event-title-section {
   padding: 20px 20px 10px 20px;
@@ -690,4 +488,10 @@ div.button > a {
 
 .event-description {
   padding: 20px;
+}
+
+
+.delete-post {
+  display: flex;
+  justify-content: flex-end;
 }

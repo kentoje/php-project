@@ -13,33 +13,32 @@ if(!isset($_SESSION['mainevent'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="img/favicon.png"
-    />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png"/>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/fonts.css">
   <link rel="stylesheet" href="./css/style.css">
   <script defer src="./js/main.js"></script>
+
   <title>Love to go out</title>
 </head>
 <body>
 
   <header>
-      <nav>
-      <?php 
-      /* echo '<pre>' . print_r($_SESSION, true) . '</pre>'; */
-      if(isset($_SESSION['name'])) {
+      <nav class="site-nav">
+        <?php 
+          if(isset($_SESSION['name'])) {
         ?>
+
         <ul>
-          <li class="button"> <a  href="./actions/disconnection.php"><p>Déconnexion</p></a></li>
+          <li class="button"><a href="./actions/disconnection.php"><p>Déconnexion</p></a></li>
           <li class="name"><?= $_SESSION['name']->getName(); ?></li>
           <li class="logo"><img src="./img/logo.png"/></li>
         </ul>
-         
+  
         <?php
       } else {
         ?>
+
         <ul>
           <li id="signin-button" class="button"><p>Inscrivez-vous</p></li>
           <li id="login-button" class="connexion">Se connecter</li>
@@ -54,7 +53,7 @@ if(!isset($_SESSION['mainevent'])) {
 
 
       <div class="pop-up" id="signin-form">
-        <h1 class="big__title2">Hello Friend !</h1>
+        <h2 class="big__title2">Hello Friend !</h2>
         <p>Inscris-toi et reste au courant des évènements cool à Paris</p>
         <form method="post" action="./actions/register.php">
           <input type="text" name="name" placeholder="Nom">
@@ -66,7 +65,7 @@ if(!isset($_SESSION['mainevent'])) {
       </div>
 
       <div class="pop-up s2" id="login-form">
-        <h1 class="big__title2">Hello Friend !</h1>
+        <h2 class="big__title2">Hello Friend !</h2>
         <p>Connecte-toi et reste au courant des évènements cool à Paris</p>        
         <form action="./actions/connection.php" method="post">
           <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo">
@@ -76,18 +75,8 @@ if(!isset($_SESSION['mainevent'])) {
         </form>
       </div>
 
-    <h1 class="big__title">Découvrez les meilleurs évènements sur Paris</h1>
+    <h1>Découvrez les meilleurs évènements sur Paris</h1>
   </header>
-
-  <nav class="categorie">
-      <ul>
-        <li class="button">Évènements phare</li>
-        <li>Expositions</li>
-        <li>Théatre</li>
-        <li>Concerts</li>
-        <li>Feu d'artifice</li>
-      </ul>
-    </nav>
 
   <main>
       <div class="weather">
@@ -96,19 +85,16 @@ if(!isset($_SESSION['mainevent'])) {
         <h2 class="weather__temp"></h2>
       </div>
   <?php 
-    /* echo '<pre>' . print_r($_SESSION, true) . '</pre>';
-    echo '<pre>' . print_r($_SESSION['name'], true) . '</pre>'; */
-    /* echo $_SESSION['name']->getName(); */
-    /* echo '<pre>' . print_r($_SESSION, true) . '</pre>';  */
 
     $result = $data->prepare('SELECT * FROM events WHERE id_event = :mainevent');
     $result->bindValue(':mainevent', $_SESSION['mainevent']);
     $result->execute();
     $event = $result->fetch(PDO::FETCH_ASSOC);
-    // $mainEvent = new App\Event($event['id_event'], $event['title'], $event['description'], $event['image'], $event['site']);
   ?>
 
-  <article class="main-event">
+  <div class="main-event">
+
+  <article class="main-event-infos">
     <div class="main-event-header">
       <img src="./img/<?php echo $event['image']?>">
       <div class="main-event-title-section">
@@ -127,6 +113,7 @@ if(!isset($_SESSION['mainevent'])) {
   </article>
 
     <div class="comments">
+      <h2>Commentaires</h2>
       <?php 
         $result = $data->prepare('SELECT * FROM comments INNER JOIN users ON comments.id_user = users.id_user WHERE comments.id_event = :mainevent');
         $result->bindValue(':mainevent', $_SESSION['mainevent']);
@@ -150,9 +137,10 @@ if(!isset($_SESSION['mainevent'])) {
                 if($_SESSION['name']) {
                   if ($_SESSION['name']->getName() == $comment['pseudo']) {
                     ?>
-                    <form method="post" action="./actions/deletecomment.php">
+                    <form class="delete-post" method="post" action="./actions/deletecomment.php">
                       <button type="submit" name="deletecomment" value="<?php echo $comment['id_comment']?>">Supprimer</button>
                     </form>
+                    
                     <?php
                   }
                 }
@@ -172,6 +160,8 @@ if(!isset($_SESSION['mainevent'])) {
       </form>
     </div>
 
+    </div>
+
     <?php 
       $result = $data->prepare('SELECT * FROM events WHERE id_event != :mainevent');
       $result->bindValue(':mainevent', $_SESSION['mainevent']);
@@ -180,7 +170,7 @@ if(!isset($_SESSION['mainevent'])) {
       foreach ($events as $event) : 
     ?>
 
-    <article>
+    <article class="other-event">
       <div>
           <img src="./img/<?php echo $event['image'] ?>">
         </a>
@@ -189,16 +179,6 @@ if(!isset($_SESSION['mainevent'])) {
         <div class="part">
           <h3><?php echo $event['title'] ?></h3>
         </div>
-        <div class="part avis">
-          <!-- <div class="buttonlike">
-            <img src="./img/like.png"/>
-          </div>   -->
-          <!-- <p>77</p>
-          <p><a>Voir avis</a></p> -->
-        </div>
-        <!-- <div class="part">
-          <div class="button"><a href="" target="_blank">Informations</a></div>
-        </div> -->
         <form method="post" action="./actions/event.php">
           <button type="submit" name="mainevent" value="<?php echo $event['id_event']?>">Voir l'évènement</button>
         </form>
@@ -208,14 +188,6 @@ if(!isset($_SESSION['mainevent'])) {
   </main>
 
   <footer>
-    <nav>
-      <ul>
-        <li>Communiquer sur<img src="./img/logo.png"></li>
-        <li>Réfèrencier votre lieu ou évènement</li>
-        <li>Autres demandes</li>
-      </ul>
-    </nav>
-    
     <nav>
       <ul class="socialnetwork">
         <li><img src="./img/facebook.png"/></li>
