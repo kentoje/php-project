@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+/* hello */
 use PDO;
 
 class Database {
