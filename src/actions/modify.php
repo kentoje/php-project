@@ -12,7 +12,7 @@ $db = App\Database::connect_database();
 
 
 /* Registration */
-if ( !isset( $_POST['submit'] ) ) {
+if ( !isset( $_POST['idcomment'] ) ) {
   array_push( $errors, 'Formulaire non envoyé.' );
   // var_dump( $errors );
 } else {
@@ -20,7 +20,7 @@ if ( !isset( $_POST['submit'] ) ) {
     header('location: ../pages/notconnected.php');
   }
   $comment = htmlspecialchars($_POST['comment']);
-  $idcomment = ($_POST['idcomment']);
+  $idcomment = $_POST['idcomment'];
 
   if ( empty($comment) ) {
     array_push( $errors, 'Votre commentaire est vide !' );
@@ -31,9 +31,6 @@ if ( !isset( $_POST['submit'] ) ) {
     $comment->updateDb();
 
 
-
-     echo '<pre>' . print_r($idcomment, true) . '</pre>';
-
-    // header('location: ../index.php');
+    header('location: ../index.php');
   }
 }

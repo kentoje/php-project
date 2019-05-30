@@ -78,14 +78,13 @@ class Comment {
     return $commentaire; */
   }
 
-  public function updteDb()
+  public function updateDb()
   {
-    $stmt = Database::$pdo->prepare("  UPDATE comments SET content = :content WHERE id_user = :user AND id_event = :idevent ");
+    $stmt = Database::$pdo->prepare("  UPDATE comments SET content = :content WHERE id_comment = :idcomment ");
     $stmt->execute(
       [
-        'user'    => $this->idUser,
-        'idevent' => $this->idEvent,
-        'content' => $this->content
+        'content'      => $this->content,
+        'idcomment'    => $this->idComment
       ]
     );
     /* $commentaire = $stmt->fetch();

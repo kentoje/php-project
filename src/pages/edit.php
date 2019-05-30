@@ -32,7 +32,7 @@
             <div class="commentform__avatar">
             </div>
             <textarea id="comment__input" class="input commentform__field" name="comment">
-            <?php  echo  $comment['content'] ?>
+            <?php echo $comment['content'] ?>
             </textarea>
             <button class="button" type="submit" name="idcomment" value="<?php echo $idcomment ?>">Modifier</button>
         </div>
