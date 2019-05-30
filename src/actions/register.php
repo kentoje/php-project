@@ -49,13 +49,15 @@ if ( isset( $_POST['submit'] ) ) {
   if ($user) {
     if ( $user['pseudo'] == $username ) {
       array_push( $errors, 'Ce pseudo existe déjà !' );
+      header('location: ../pages/wrong.php');
     }
 
     if ( $user['email'] == $email ) {
       array_push( $errors, 'Ce mail existe déjà !' );
+      header('location: ../pages/wrong.php');
     }
   }
-
+  
   if ( count($errors) == 0 ) {
     $query = "INSERT INTO users(pseudo, email, password) VALUES ('$username', '$email', '$password')";
     $insertReq = App\Database::$pdo->exec( $query );
