@@ -99,6 +99,7 @@ if(!isset($_SESSION['mainevent'])) {
       <img src="./img/<?php echo $event['image']?>">
       <div class="main-event-title-section">
         <h3><?php echo $event['title']?></h3>
+        <h4>24 mai - 27 mai</h4>
         <div class="part avis">
         <form action="./actions/like.php" method="post">
           <button class="like" type="submit" name="vote" value="<?php echo $event['id_event'] ?>"><img src="img/like.png" alt=""></button>
