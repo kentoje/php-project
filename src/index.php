@@ -189,7 +189,7 @@ if(!isset($_SESSION['mainevent'])) {
           <h3><?php echo $event['title'] ?></h3>
         </div>
         <form method="post" action="./actions/event.php">
-          <button type="submit" name="mainevent" value="<?php echo $event['id_event'] ?>">Voir l'évènement</button>
+          <button class="button__event" type="submit" name="mainevent" value="<?php echo $event['id_event'] ?>">Participer</button>
         </form>
       </div>    
     </article>
