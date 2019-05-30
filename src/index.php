@@ -53,7 +53,7 @@ $data = App\Database::$pdo;
         <p>Inscris-toi et reste au courant des évènements cool à Paris</p>
         <form method="post" action="./actions/register.php">
           <input type="text" name="name" placeholder="Nom">
-          <input type="text" name="email" placeholder="E-mail">
+          <input type="email" name="email" placeholder="E-mail">
           <input type="password" name="password" placeholder="Mot de passe">
           <input type="submit" name="submit" value="Envoyer">
           <div id="signin-close" class="close-icon"></div>
@@ -64,7 +64,7 @@ $data = App\Database::$pdo;
         <h1 class="big__title2">Hello Friend !</h1>
         <p>Connecte-toi et reste au courant des évènements cool à Paris</p>        
         <form action="./actions/connection.php" method="post">
-          <input type="text" name="pseudo" id="pseudo" placeholder="E-mail">
+          <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo">
           <input type="password" name="password" id="password" placeholder="Mot de passe">
           <input type="submit" name="ajouter" value="Envoyer">
           <div id="login-close" class="close-icon"></div>
