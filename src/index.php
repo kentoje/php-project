@@ -103,26 +103,24 @@ if(!isset($_SESSION['mainevent'])) {
     // $mainEvent = new App\Event($event['id_event'], $event['title'], $event['description'], $event['image'], $event['site']);
   ?>
 
-<article>
-    <div>
+  <article class="main-event">
+    <div class="main-event-header">
       <img src="./img/<?php echo $event['image']?>">
-    </div>
-    <div>
-      <div class="part">
+      <div class="main-event-title-section">
         <h3><?php echo $event['title']?></h3>
-      </div>
-      <div class="part avis">
-        <div class="buttonlike">
-          <img src="./img/like.png"/>
-        </div>  
-        <p>97</p>
-      </div>
-      <div class="part">
+        <div class="part avis">
+          <div class="buttonlike">
+            <img src="./img/like.png"/>
+          </div>  
+          <p>97</p>
+        </div>
         <div class="button"><a href="<?php echo $event['site']?>" target="_blank">Informations</a></div>
       </div>
-    </div>    
+    </div>
+
+    <p class="event-description"><?php echo $event['description']?></p>
   </article>
-    
+
     <div class="comments">
       <?php 
         $result = $data->prepare('SELECT * FROM comments INNER JOIN users ON comments.id_user = users.id_user WHERE comments.id_event = :mainevent');
@@ -143,6 +141,17 @@ if(!isset($_SESSION['mainevent'])) {
                   echo $comment['pseudo'];
                 ?></p>
               <p class="comment__description"><?= $comment['content']; ?></p>
+              <?php 
+                if($_SESSION['name']) {
+                  if ($_SESSION['name']->getName() == $comment['pseudo']) {
+                    ?>
+                    <form method="post" action="./actions/deletecomment.php">
+                      <button type="submit" name="deletecomment" value="<?php echo $comment['id_comment']?>">Supprimer</button>
+                    </form>
+                    <?php
+                  }
+                }
+              ?>
             </div>
           </div>
         <?php endforeach; ?>
