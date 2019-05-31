@@ -26,18 +26,13 @@ if($_POST['pseudo'] && $_POST['password']) {
     if ( password_verify( $password , $hashPass ) == true) {
       $utilisateur = new App\User( $user['id_user'], $user['pseudo'], $user['email'], $user['password'], $user['photo'] );
       $_SESSION['name'] = $utilisateur;
-      // echo $utilisateur->getName();
-
-      // echo '<pre>' . print_r($_SESSION, true) . '</pre>';
-
       header( 'location: ../index.php' );
     } else {
-
       header('location: ../pages/wronglogin.php');
     }
   } else {
     header('location: ../pages/wronglogin.php');    
   }
 } else {
-  header('location: ../pages/wrong.php');
+  header('location: ../pages/passandlogin.php');
 }
