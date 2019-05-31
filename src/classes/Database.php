@@ -9,7 +9,7 @@ class Database {
   const DB_HOST   = '127.0.0.1';
   const DB_DBNAME = 'test';
   const DB_USER   = 'root';
-  const DB_PASS   = 'rootroot';
+  const DB_PASS   = 'root';
   public static $pdo;
 
   public static function connect_database() 
