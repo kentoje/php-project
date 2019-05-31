@@ -20,19 +20,19 @@ if ( isset( $_POST['submit'] ) ) {
   
   if ( empty($email) ) {
     array_push( $errors, 'Vous devez mettre un email !' );
-    header('location: ../pages/wrong.php');
+    header('location: ../pages/noemail.php');
   }
 
   if ( empty($_POST['password']) ) {
     array_push( $errors, 'Vous devez mettre un mot de passe !' );
-    header('location: ../pages/wrong.php');
+    header('location: ../pages/nopassword.php');
   } else {
     $password = password_hash( $_POST['password'], PASSWORD_DEFAULT );
   }
 
   if ( empty($_POST['name']) ) {
     array_push( $errors, 'Vous devez mettre un pseudo !' );
-    header('location: ../pages/wrong.php');
+    header('location: ../pages/nopseudo.php');
   } else {
     $username = trim(htmlspecialchars($_POST['name']));
   }
@@ -49,12 +49,12 @@ if ( isset( $_POST['submit'] ) ) {
   if ($user) {
     if ( $user['pseudo'] == $username ) {
       array_push( $errors, 'Ce pseudo existe déjà !' );
-      header('location: ../pages/wrong.php');
+      header('location: ../pages/existingpseudo.php');
     }
 
     if ( $user['email'] == $email ) {
       array_push( $errors, 'Ce mail existe déjà !' );
-      header('location: ../pages/wrong.php');
+      header('location: ../pages/existingemail.php');
     }
   }
   
